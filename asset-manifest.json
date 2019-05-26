@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/vmrents-website/static/css/main.6fb6c847.chunk.css",
+    "main.js": "/vmrents-website/static/js/main.97069155.chunk.js",
+    "main.js.map": "/vmrents-website/static/js/main.97069155.chunk.js.map",
+    "runtime~main.js": "/vmrents-website/static/js/runtime~main.19a53148.js",
+    "runtime~main.js.map": "/vmrents-website/static/js/runtime~main.19a53148.js.map",
+    "static/js/2.cac4b269.chunk.js": "/vmrents-website/static/js/2.cac4b269.chunk.js",
+    "static/js/2.cac4b269.chunk.js.map": "/vmrents-website/static/js/2.cac4b269.chunk.js.map",
+    "index.html": "/vmrents-website/index.html",
+    "precache-manifest.c137301775c2b2c549b0af459cc7f058.js": "/vmrents-website/precache-manifest.c137301775c2b2c549b0af459cc7f058.js",
+    "service-worker.js": "/vmrents-website/service-worker.js",
+    "static/css/main.6fb6c847.chunk.css.map": "/vmrents-website/static/css/main.6fb6c847.chunk.css.map",
+    "static/media/header_car2.png": "/vmrents-website/static/media/header_car2.62bd27a1.png",
+    "static/media/logo.png": "/vmrents-website/static/media/logo.c1bc2118.png"
+  }
+}
