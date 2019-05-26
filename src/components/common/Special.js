@@ -1,10 +1,11 @@
 import React from 'react'
 import { withStyles, Button } from '@material-ui/core'
-import {useLittera} from "react-littera";
+import { useLittera } from 'react-littera'
 
 const styles = theme => ({
   rootRight: {
-    width: '100%',
+    width: '100vw',
+    maxWidth: '100%',
     height: '50vh',
     overflow: 'hidden',
     display: 'flex',
@@ -13,7 +14,8 @@ const styles = theme => ({
     position: 'relative',
   },
   rootLeft: {
-    width: '100%',
+    width: '100vw',
+    maxWidth: '100%',
     height: '50vh',
     overflow: 'hidden',
     display: 'flex',
@@ -103,7 +105,7 @@ const translations = {
 }
 
 const Special = ({ classes }) => {
-  const [translated] = useLittera(translations);
+  const [translated] = useLittera(translations)
 
   return (
     <div>

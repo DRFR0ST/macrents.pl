@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Routes'
 import { createMuiTheme } from '@material-ui/core'
 import { MuiThemeProvider } from '@material-ui/core/styles'
+import NavDrawer from '../components/common/NavDrawer'
 
 const theme = createMuiTheme({
   palette: {
@@ -24,14 +25,19 @@ const theme = createMuiTheme({
 })
 
 function App() {
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const [language, setLanguage] = useState('pl_PL')
 
   return (
     <MuiThemeProvider theme={theme}>
       <LitteraProvider language={language} setLanguage={setLanguage}>
         <Router basename="/vmrents-website/">
-          <Navbar />
+          <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
           <Routes />
+          <NavDrawer
+            toggled={drawerOpen}
+            closeDrawer={() => setDrawerOpen(false)}
+          />
         </Router>
       </LitteraProvider>
     </MuiThemeProvider>

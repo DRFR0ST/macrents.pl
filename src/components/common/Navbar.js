@@ -11,6 +11,8 @@ import {
   MenuItem,
   IconButton,
   Typography,
+  Hidden,
+  Icon,
 } from '@material-ui/core'
 import { useLittera } from 'react-littera'
 import { withRouter } from 'react-router-dom'
@@ -41,6 +43,11 @@ const styles = theme => ({
     maxHeight: 'calc(64px - 1rem)',
     width: 'auto',
   },
+  logoSmall: {
+    maxHeight: 'calc(64px - 1rem)',
+    maxWidth: '60%',
+    flex: 1,
+  },
   left: {
     display: 'flex',
     justifyContent: 'flex-start',
@@ -59,6 +66,18 @@ const styles = theme => ({
     border: `0.5px solid ${theme.palette.primary.main}`,
     color: '#FFF',
     boxShadow: `0px 4px 22px -8px rgba(182, 156, 117, 0.4)`,
+  },
+  leftSmall: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '10%',
+  },
+  rightSmall: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '90%',
   },
 })
 
@@ -96,7 +115,7 @@ const translations = {
   },
 }
 
-const Navbar = ({ children, classes, history }) => {
+const Navbar = ({ children, classes, history, drawerOpen, setDrawerOpen }) => {
   const [activeTab, setActiveTab] = useState(0)
   const [translated, language, setLanguage] = useLittera(translations)
   const [langMenuOpen, setLangMenuOpen] = useState(false)
@@ -125,78 +144,92 @@ const Navbar = ({ children, classes, history }) => {
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <div className={classes.left}>
-          <img className={classes.logo} src={logo} />
-        </div>
-        <div className={classes.right}>
-          {tabs.map((e, i) => {
-            const handleClick = () => {
-              setActiveTab(i)
-              history.push(`/${e.key === 'home' ? '' : e.key}`)
-            }
-
-            return (
-              <Button
-                color="primary"
-                variant={activeTab === i ? 'outlined' : 'text'}
-                onClick={handleClick}>
-                {translated[e.key]}
-              </Button>
-            )
-          })}
-          <div>
+        <Hidden mdUp>
+          <div className={classes.leftSmall}>
             <IconButton
-              ref={langRef}
-              aria-owns={langMenuOpen ? 'menu-list-grow' : undefined}
-              aria-haspopup="true"
               color="primary"
-              onClick={handleToggle}>
-              {languageLabel}
+              onClick={() => setDrawerOpen(!drawerOpen)}>
+              <Icon>menu</Icon>
             </IconButton>
-            <Popper
-              open={langMenuOpen}
-              anchorEl={langRef.current}
-              transition
-              disablePortal
-              style={{ zIndex: 50 }}>
-              {({ TransitionProps, placement }) => (
-                <Grow
-                  {...TransitionProps}
-                  style={{
-                    transformOrigin:
-                      placement === 'bottom' ? 'center top' : 'center bottom',
-                  }}>
-                  <Paper id="menu-list-grow" className={classes.blackPaper}>
-                    <ClickAwayListener onClickAway={handleClose}>
-                      <MenuList>
-                        <MenuItem
-                          onClick={() => {
-                            handleClose()
-                            setLanguage('pl_PL')
-                          }}>
-                          {plFlag}{' '}
-                          <Typography style={{ marginLeft: '10px' }}>
-                            Polski
-                          </Typography>
-                        </MenuItem>
-                        <MenuItem
-                          onClick={() => {
-                            handleClose()
-                            setLanguage('en_US')
-                          }}>
-                          {enFlag}{' '}
-                          <Typography style={{ marginLeft: '10px' }}>
-                            English
-                          </Typography>
-                        </MenuItem>
-                      </MenuList>
-                    </ClickAwayListener>
-                  </Paper>
-                </Grow>
-              )}
-            </Popper>
           </div>
-        </div>
+          <div className={classes.rightSmall}>
+            <img className={classes.logoSmall} src={logo} />
+          </div>
+        </Hidden>
+        <Hidden smDown>
+          <div className={classes.left}>
+            <img className={classes.logo} src={logo} />
+          </div>
+          <div className={classes.right}>
+            {tabs.map((e, i) => {
+              const handleClick = () => {
+                setActiveTab(i)
+                history.push(`/${e.key === 'home' ? '' : e.key}`)
+              }
+
+              return (
+                <Button
+                  color="primary"
+                  variant={activeTab === i ? 'outlined' : 'text'}
+                  onClick={handleClick}>
+                  {translated[e.key]}
+                </Button>
+              )
+            })}
+            <div>
+              <IconButton
+                ref={langRef}
+                aria-owns={langMenuOpen ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                color="primary"
+                onClick={handleToggle}>
+                {languageLabel}
+              </IconButton>
+              <Popper
+                open={langMenuOpen}
+                anchorEl={langRef.current}
+                transition
+                disablePortal
+                style={{ zIndex: 50 }}>
+                {({ TransitionProps, placement }) => (
+                  <Grow
+                    {...TransitionProps}
+                    style={{
+                      transformOrigin:
+                        placement === 'bottom' ? 'center top' : 'center bottom',
+                    }}>
+                    <Paper id="menu-list-grow" className={classes.blackPaper}>
+                      <ClickAwayListener onClickAway={handleClose}>
+                        <MenuList>
+                          <MenuItem
+                            onClick={() => {
+                              handleClose()
+                              setLanguage('pl_PL')
+                            }}>
+                            {plFlag}{' '}
+                            <Typography style={{ marginLeft: '10px' }}>
+                              Polski
+                            </Typography>
+                          </MenuItem>
+                          <MenuItem
+                            onClick={() => {
+                              handleClose()
+                              setLanguage('en_US')
+                            }}>
+                            {enFlag}{' '}
+                            <Typography style={{ marginLeft: '10px' }}>
+                              English
+                            </Typography>
+                          </MenuItem>
+                        </MenuList>
+                      </ClickAwayListener>
+                    </Paper>
+                  </Grow>
+                )}
+              </Popper>
+            </div>
+          </div>
+        </Hidden>
       </div>
     </div>
   )
