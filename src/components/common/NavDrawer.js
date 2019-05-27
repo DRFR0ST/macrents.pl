@@ -5,12 +5,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider,
   withStyles,
   Icon,
 } from '@material-ui/core'
-import DraftsIcon from '@material-ui/icons/Drafts'
-import InboxIcon from '@material-ui/icons/Inbox'
+
+import logo from 'images/logo.png'
 
 const styles = theme => ({
   paper: {
@@ -18,6 +17,18 @@ const styles = theme => ({
     width: '100%',
     color: '#fff',
     maxWidth: 280,
+    position: 'relative',
+  },
+  logo: {
+    width: '100%',
+    height: '64px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '1rem 0',
+    '& img': {
+      maxHeight: '46px',
+    },
   },
 })
 
@@ -28,6 +39,9 @@ const NavDrawer = ({ toggled, closeDrawer, classes }) => {
       open={toggled}
       onClose={closeDrawer}
       classes={{ paper: classes.paper }}>
+      <div className={classes.logo}>
+        <img src={logo} alt="Logo" />
+      </div>
       <div className={classes.root}>
         <List>
           <ListItem button onClick={closeDrawer}>

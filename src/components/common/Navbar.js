@@ -27,7 +27,7 @@ const styles = theme => ({
     width: '100vw',
     maxWidth: '100%',
     height: '64px',
-    background: '#212121',
+    background: theme.palette.background.main,
     position: 'relative',
     display: 'inline-block',
   },
@@ -46,7 +46,6 @@ const styles = theme => ({
   logoSmall: {
     maxHeight: 'calc(64px - 1rem)',
     maxWidth: '60%',
-    flex: 1,
   },
   left: {
     display: 'flex',
@@ -153,12 +152,12 @@ const Navbar = ({ children, classes, history, drawerOpen, setDrawerOpen }) => {
             </IconButton>
           </div>
           <div className={classes.rightSmall}>
-            <img className={classes.logoSmall} src={logo} />
+            <img className={classes.logoSmall} src={logo} alt="Logo" />
           </div>
         </Hidden>
         <Hidden smDown>
           <div className={classes.left}>
-            <img className={classes.logo} src={logo} />
+            <img className={classes.logo} src={logo} alt="Logo" />
           </div>
           <div className={classes.right}>
             {tabs.map((e, i) => {

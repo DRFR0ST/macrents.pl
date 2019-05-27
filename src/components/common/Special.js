@@ -56,6 +56,15 @@ const styles = theme => ({
     height: 'auto',
     transform: 'translateY(-75%)',
   },
+  imageRight2: {
+    position: 'absolute',
+    zIndex: -1,
+    left: 0,
+    top: '50%',
+    minWidth: '100%',
+    height: 'auto',
+    transform: 'translateY(-50%)',
+  },
   imageLeft: {
     position: 'absolute',
     zIndex: -1,
@@ -72,7 +81,7 @@ const styles = theme => ({
     top: 0,
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(to right, #212121 30%, transparent)',
+    background: 'linear-gradient(to bottom right, #212121 35%, transparent)',
   },
   shadowLeft: {
     position: 'absolute',
@@ -81,7 +90,7 @@ const styles = theme => ({
     top: 0,
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(to left, #212121 30%, transparent)',
+    background: 'linear-gradient(to bottom left, #212121 35%, transparent)',
   },
 })
 
@@ -133,7 +142,11 @@ const Special = ({ classes }) => {
         <div className={classes.sloganLeft}>
           <div>
             <h2>{translated.slogan2}</h2>
-            <Button size="large" variant="outlined" color="primary">
+            <Button
+              size="large"
+              style={{ float: 'right' }}
+              variant="outlined"
+              color="primary">
               {translated.learnMore}
             </Button>
           </div>
@@ -150,8 +163,8 @@ const Special = ({ classes }) => {
         </div>
         <div className={classes.shadowRight} />
         <img
-          src="https://images.unsplash.com/photo-1524645343120-a4ae9f7d4343?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
-          className={classes.imageRight}
+          src="https://images.unsplash.com/photo-1458531534615-e81e99962807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+          className={classes.imageRight2}
         />
       </div>
     </div>

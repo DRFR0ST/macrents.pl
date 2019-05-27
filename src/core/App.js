@@ -14,6 +14,10 @@ const theme = createMuiTheme({
       darker: '#7e6542',
       main: '#a48453',
     },
+    background: {
+      main: '#212121',
+      lighter: '#424242',
+    },
   },
   typography: {
     fontFamily: "'Titillium Web', sans-serif",

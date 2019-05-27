@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core'
 import { useLittera } from 'react-littera'
 import Header from '../common/Header'
 import Special from '../common/Special'
+import ContactPanel from '../common/ContactPanel'
 
 const styles = {
   root: {},
@@ -25,6 +26,7 @@ const Home = ({ children, classes }) => {
       <div className={classes.content}>
         <Special />
       </div>
+      {/* <ContactPanel /> */}
     </div>
   )
 }
