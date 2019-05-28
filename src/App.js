@@ -1,8 +1,8 @@
-import React from "react";
-import logo from "./logo.png";
-import "./App.css";
+import React from 'react'
+import logo from './logo.png'
+import './App.css'
 
-import Tilt from "react-tilt";
+import Tilt from 'react-tilt'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <p>Strona w budowie...</p>
         <a
           className="App-link"
-          href="https://facebook.com/"
+          href="https://www.facebook.com/VMRents-552611681931146"
           target="_blank"
           rel="noopener noreferrer">
           <Tilt
@@ -24,7 +24,7 @@ function App() {
       </header>
       <div class="image-footer" />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
