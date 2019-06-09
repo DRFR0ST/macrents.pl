@@ -8,8 +8,11 @@ import {
   withStyles,
   Icon,
 } from '@material-ui/core'
+import { withRouter } from 'react-router-dom'
 
 import logo from 'images/logo.png'
+
+import { useLittera } from 'react-littera'
 
 const styles = theme => ({
   paper: {
@@ -32,7 +35,55 @@ const styles = theme => ({
   },
 })
 
-const NavDrawer = ({ toggled, closeDrawer, classes }) => {
+const tabs = [
+  {
+    key: 'home',
+    icon: 'home',
+  },
+  {
+    key: 'fleet',
+    icon: 'style',
+  },
+  {
+    key: 'about',
+    icon: 'business',
+  },
+  {
+    key: 'pricing',
+    icon: 'attach_money',
+  },
+  {
+    key: 'contact',
+    icon: 'phone',
+  },
+]
+
+const translations = {
+  home: {
+    en_US: 'Home',
+    pl_PL: 'Strona główna',
+  },
+  about: {
+    en_US: 'About',
+    pl_PL: 'O nas',
+  },
+  pricing: {
+    en_US: 'Pricing',
+    pl_PL: 'Cennik',
+  },
+  contact: {
+    en_US: 'Contact',
+    pl_PL: 'Kontakt',
+  },
+  fleet: {
+    en_US: 'Fleet',
+    pl_PL: 'Flota',
+  },
+}
+
+const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
+  const [translated] = useLittera(translations)
+
   return (
     <Drawer
       anchor="left"
@@ -44,34 +95,23 @@ const NavDrawer = ({ toggled, closeDrawer, classes }) => {
       </div>
       <div className={classes.root}>
         <List>
-          <ListItem button onClick={closeDrawer}>
-            <ListItemIcon>
-              <Icon style={{ color: '#fff' }}>home</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem button onClick={closeDrawer}>
-            <ListItemIcon>
-              <Icon style={{ color: '#fff' }}>business</Icon>
-            </ListItemIcon>
-            <ListItemText primary="About" />
-          </ListItem>
-          <ListItem button onClick={closeDrawer}>
-            <ListItemIcon>
-              <Icon style={{ color: '#fff' }}>attach_money</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Pricing" />
-          </ListItem>
-          <ListItem button onClick={closeDrawer}>
-            <ListItemIcon>
-              <Icon style={{ color: '#fff' }}>phone</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Contact" />
-          </ListItem>
+          {tabs.map(tab => (
+            <ListItem
+              button
+              onClick={() => {
+                closeDrawer()
+                history.push(tab.key !== 'home' ? `/${tab.key}` : '/')
+              }}>
+              <ListItemIcon>
+                <Icon style={{ color: '#fff' }}>{tab.icon}</Icon>
+              </ListItemIcon>
+              <ListItemText primary={translated[tab.key]} />
+            </ListItem>
+          ))}
         </List>
       </div>
     </Drawer>
   )
 }
 
-export default withStyles(styles)(NavDrawer)
+export default withStyles(styles)(withRouter(NavDrawer))

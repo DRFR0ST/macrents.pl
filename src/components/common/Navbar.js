@@ -85,6 +85,9 @@ const tabs = [
     key: 'home',
   },
   {
+    key: 'fleet',
+  },
+  {
     key: 'about',
   },
   {
@@ -111,6 +114,10 @@ const translations = {
   contact: {
     en_US: 'Contact',
     pl_PL: 'Kontakt',
+  },
+  fleet: {
+    en_US: 'Fleet',
+    pl_PL: 'Flota',
   },
 }
 

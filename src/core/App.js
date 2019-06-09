@@ -32,10 +32,13 @@ function App() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [language, setLanguage] = useState('pl_PL')
 
+  const basename =
+    process.env.REACT_APP_MODE === 'dev' ? '/' : '/vmrents-website/'
+
   return (
     <MuiThemeProvider theme={theme}>
       <LitteraProvider language={language} setLanguage={setLanguage}>
-        <Router basename="/vmrents-website/">
+        <Router basename={basename}>
           <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
           <Routes />
           <NavDrawer

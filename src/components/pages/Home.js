@@ -5,6 +5,7 @@ import { useLittera } from 'react-littera'
 import Header from '../common/Header'
 import Special from '../common/Special'
 import ContactPanel from '../common/ContactPanel'
+import FleetSelector from '../common/FleetSelector'
 
 const styles = {
   root: {},
@@ -26,7 +27,8 @@ const Home = ({ children, classes }) => {
       <div className={classes.content}>
         <Special />
       </div>
-      {/* <ContactPanel /> */}
+      <FleetSelector />
+      <ContactPanel />
     </div>
   )
 }
