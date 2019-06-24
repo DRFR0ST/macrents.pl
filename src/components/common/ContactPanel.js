@@ -124,7 +124,7 @@ const ContactPanel = ({ classes }) => {
       <img
         src="http://source.unsplash.com/a5XN1f09_ek"
         className={classes.backgroundImage}
-        alt="background image"
+        alt="background"
       />
       <div className={classes.plusChunk} />
       <div className={classes.plusChunk2} />
