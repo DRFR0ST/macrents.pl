@@ -131,6 +131,7 @@ const Special = ({ classes }) => {
         <img
           src="https://images.unsplash.com/photo-1551952237-954a0e68786c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
           className={classes.imageRight}
+          alt="rightpic"
         />
       </div>
       <div className={classes.rootLeft}>
@@ -138,6 +139,7 @@ const Special = ({ classes }) => {
         <img
           src="https://images.unsplash.com/photo-1553055193-a5529553098f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1382&q=80"
           className={classes.imageLeft}
+          alt="centerpic"
         />
         <div className={classes.sloganLeft}>
           <div>
@@ -165,6 +167,7 @@ const Special = ({ classes }) => {
         <img
           src="https://images.unsplash.com/photo-1458531534615-e81e99962807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
           className={classes.imageRight2}
+          alt="rightpic2"
         />
       </div>
     </div>
