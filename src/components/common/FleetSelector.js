@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import { withStyles, Icon } from '@material-ui/core'
 
 import ExampleVehicle from 'images/fleet/exampleVehicle.jpg'
