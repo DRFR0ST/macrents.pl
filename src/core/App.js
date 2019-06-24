@@ -9,6 +9,7 @@ import NavDrawer from '../components/common/NavDrawer'
 
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
       lighter: '#d5b97f',
       darker: '#7e6542',
