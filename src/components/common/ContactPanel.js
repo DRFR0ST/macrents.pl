@@ -19,15 +19,10 @@ const styles = theme => ({
   },
   input: {
     color: '#fff !important',
-    borderColor: '#fff !important',
   },
   textField: {
     color: '#fff !important',
-    borderColor: '#fff !important',
     margin: '1rem 0',
-    '& input': {
-      borderColor: '#fff !important',
-    },
   },
   plusChunk: {
     background: 'transparent',
@@ -129,7 +124,7 @@ const ContactPanel = ({ classes }) => {
       <div className={classes.plusChunk} />
       <div className={classes.plusChunk2} />
       <Paper className={classes.paper}>
-        <Typography variant="h3" style={{ color: '#a48453', opacity: 0.8 }}>
+        <Typography variant="h3" style={{ color: '#fff', opacity: 0.8 }}>
           {translated.contact}
         </Typography>
         <TextField
@@ -138,7 +133,7 @@ const ContactPanel = ({ classes }) => {
           placeholder={translated.name}
           value={values[0]}
           onChange={e => handleChange(0, e.target.value)}
-          variant="filled"
+          variant="outlined"
           inputProps={{ className: classes.input }}
           className={classes.textField}
         />
@@ -149,7 +144,7 @@ const ContactPanel = ({ classes }) => {
           type="email"
           value={values[1]}
           onChange={e => handleChange(1, e.target.value)}
-          variant="filled"
+          variant="outlined"
           inputProps={{ className: classes.input }}
           className={classes.textField}
         />
@@ -160,7 +155,7 @@ const ContactPanel = ({ classes }) => {
           multiline
           value={values[2]}
           onChange={e => handleChange(2, e.target.value)}
-          variant="filled"
+          variant="outlined"
           inputProps={{ className: classes.input }}
           className={classes.textField}
         />
