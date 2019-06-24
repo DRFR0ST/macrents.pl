@@ -122,7 +122,7 @@ const Special = ({ classes }) => {
         <div className={classes.sloganRight}>
           <div>
             <h2>{translated.slogan1}</h2>
-            <Button size="large" variant="outlined" color="primary">
+            <Button size="large" variant="contained" color="primary">
               {translated.learnMore}
             </Button>
           </div>
@@ -145,7 +145,7 @@ const Special = ({ classes }) => {
             <Button
               size="large"
               style={{ float: 'right' }}
-              variant="outlined"
+              variant="contained"
               color="primary">
               {translated.learnMore}
             </Button>
@@ -156,7 +156,7 @@ const Special = ({ classes }) => {
         <div className={classes.sloganRight}>
           <div>
             <h2>{translated.slogan3}</h2>
-            <Button size="large" variant="outlined" color="primary">
+            <Button size="large" variant="contained" color="primary">
               {translated.learnMore}
             </Button>
           </div>

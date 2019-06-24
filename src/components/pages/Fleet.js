@@ -1,7 +1,8 @@
 import React from 'react'
+import FleetSelector from '../common/FleetSelector'
 
 const Fleet = () => {
-  return <p>Fleet</p>
+  return <FleetSelector />
 }
 
 export default Fleet

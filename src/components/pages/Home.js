@@ -6,6 +6,7 @@ import Header from '../common/Header'
 import Special from '../common/Special'
 import ContactPanel from '../common/ContactPanel'
 import FleetSelector from '../common/FleetSelector'
+import Footer from '../common/Footer'
 
 const styles = {
   root: {},
@@ -27,8 +28,8 @@ const Home = ({ children, classes }) => {
       <div className={classes.content}>
         <Special />
       </div>
-      <FleetSelector />
       <ContactPanel />
+      <Footer />
     </div>
   )
 }

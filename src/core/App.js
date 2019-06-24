@@ -26,6 +26,15 @@ const theme = createMuiTheme({
   button: {
     color: '#fff',
   },
+  input: {
+    borderColor: 'rgba(255, 255, 255, 0.3) !important',
+    notchedOutline: {
+      borderColor: 'rgba(255, 255, 255, 0.3) !important',
+    },
+  },
+  notchedOutline: {
+    borderColor: 'rgba(255, 255, 255, 0.3) !important',
+  },
 })
 
 function App() {
