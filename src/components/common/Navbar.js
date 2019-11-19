@@ -121,7 +121,14 @@ const translations = {
   },
 }
 
-const Navbar = ({ children, classes, history, drawerOpen, setDrawerOpen }) => {
+const Navbar = ({
+  children,
+  classes,
+  history,
+  location,
+  drawerOpen,
+  setDrawerOpen,
+}) => {
   const [activeTab, setActiveTab] = useState(0)
   const [translated, language, setLanguage] = useLittera(translations)
   const [langMenuOpen, setLangMenuOpen] = useState(false)
@@ -140,6 +147,18 @@ const Navbar = ({ children, classes, history, drawerOpen, setDrawerOpen }) => {
       style={{ height: '20px', width: 'auto' }}
     />
   )
+
+  React.useEffect(() => {
+    if (location.pathname.indexOf(tabs[activeTab].key) <= -1) {
+      const newActive = tabs.find(
+        e =>
+          (e.key === 'home' && location.pathname === '/') ||
+          location.pathname.replace('/', '') === e.key
+      )
+      const newIndex = tabs.indexOf(newActive)
+      newIndex > -1 && setActiveTab(newIndex)
+    }
+  }, [location.pathname]) // eslint-disable-line
 
   const languageLabel =
     language === 'en_US' ? enFlag : language === 'pl_PL' ? plFlag : plFlag
@@ -169,7 +188,6 @@ const Navbar = ({ children, classes, history, drawerOpen, setDrawerOpen }) => {
           <div className={classes.right}>
             {tabs.map((e, i) => {
               const handleClick = () => {
-                setActiveTab(i)
                 history.push(`/${e.key === 'home' ? '' : e.key}`)
               }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { withStyles, Typography, Button, Icon } from '@material-ui/core'
 import cx from 'classnames'
+import { Link } from 'react-router-dom'
 import { useLittera } from 'react-littera'
 
 import header_car from 'images/header_car2.png'
@@ -95,14 +96,16 @@ const styles = theme => ({
 
 const translations = {
   proceed: {
-    en_US: 'Proceed',
-    pl_PL: 'Kontynuuj',
+    en_US: 'See our fleet',
+    pl_PL: 'Obejrzyj flotę',
   },
   title: {
     en_US: 'Rent a car',
     pl_PL: 'Wypożycz auto',
   },
 }
+
+const LinkWrapper = ({ ...props }) => <Link {...props} />
 
 const Header = ({ classes }) => {
   const [translated] = useLittera(translations)
@@ -121,10 +124,15 @@ const Header = ({ classes }) => {
             platea dictumst.
           </Typography>
           <br />
-          <Button size="large" color="primary" variant="outlined">
+          <Button
+            component={Link}
+            size="large"
+            to="/fleet"
+            color="primary"
+            variant="outlined">
             {translated.proceed}{' '}
             <Icon size="small" className={classes.rightIcon}>
-              keyboard_arrow_down
+              directions_car
             </Icon>
           </Button>
         </div>
