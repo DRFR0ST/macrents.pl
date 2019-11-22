@@ -105,7 +105,7 @@ const translations = {
   },
 }
 
-const LinkWrapper = ({ ...props }) => <Link {...props} />
+// const LinkWrapper = ({ ...props }) => <Link {...props} />
 
 const Header = ({ classes }) => {
   const [translated] = useLittera(translations)
@@ -129,7 +129,8 @@ const Header = ({ classes }) => {
             size="large"
             to="/fleet"
             color="primary"
-            variant="outlined">
+            variant="outlined"
+          >
             {translated.proceed}{' '}
             <Icon size="small" className={classes.rightIcon}>
               directions_car
