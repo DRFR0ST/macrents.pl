@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ca08c0ffb50ca6df72c220deede62571",
+    "revision": "0d990681bf9494302af8ee004e0939fb",
     "url": "/vmrents-website/index.html"
   },
   {
-    "revision": "3ba117370e8b0304283e",
+    "revision": "54b21df65eb04a1309df",
     "url": "/vmrents-website/static/css/main.16867338.chunk.css"
   },
   {
-    "revision": "b2b58bbfb443dd34aa32",
-    "url": "/vmrents-website/static/js/2.92820e3b.chunk.js"
+    "revision": "83d7e8a74244add5697c",
+    "url": "/vmrents-website/static/js/2.e1c3dbd6.chunk.js"
   },
   {
-    "revision": "3ba117370e8b0304283e",
-    "url": "/vmrents-website/static/js/main.b1be0741.chunk.js"
+    "revision": "54b21df65eb04a1309df",
+    "url": "/vmrents-website/static/js/main.02400dcd.chunk.js"
   },
   {
     "revision": "c3f1d09cdeb9fd13002a",
