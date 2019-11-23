@@ -99,6 +99,7 @@ const useStyles = makeStyles(theme => ({
     },
     '& p': {
       opacity: 0.85,
+      borderBottom: `5px solid ${theme.palette.primary.main}`,
     },
   },
 }))
