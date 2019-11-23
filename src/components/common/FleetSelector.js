@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogContent,
   Dialog,
+  Hidden,
 } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 
@@ -18,7 +19,7 @@ const styles = {
     width: '100vw',
     overflow: 'hidden',
     maxWidth: '100%',
-    height: 'calc(100vh - 64px)',
+    minHeight: 'calc(100vh - 64px)',
     position: 'relative',
     textAlign: 'center',
     color: '#fff',
@@ -38,9 +39,10 @@ const styles = {
   },
   controls: {
     display: 'flex',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
+    width: '75%',
+    margin: '0 auto',
   },
   '@keyframes vanish': {
     '0%': { opacity: 0, top: '250px' },
@@ -154,18 +156,36 @@ const FleetSelector = ({ classes }) => {
             ))}
           </div>
           <div className={classes.controls}>
-            <Icon className={classes.arrows} onClick={handlePrev}>
-              keyboard_arrow_left
-            </Icon>
-            <div className={classes.controlsText}>
-              <h1>{fleet[active].name}</h1>
-              <Typography style={{ opacity: 0.6 }} paragraph>
-                od {fleet[active].lowestPrice}zł/h
-              </Typography>
-            </div>
-            <Icon className={classes.arrows} onClick={handleNext}>
-              keyboard_arrow_right
-            </Icon>
+            <Hidden smDown>
+              <Icon className={classes.arrows} onClick={handlePrev}>
+                keyboard_arrow_left
+              </Icon>
+              <div className={classes.controlsText}>
+                <h1>{fleet[active].name}</h1>
+                <Typography style={{ opacity: 0.6 }} paragraph>
+                  od {fleet[active].lowestPrice}zł/h
+                </Typography>
+              </div>
+              <Icon className={classes.arrows} onClick={handleNext}>
+                keyboard_arrow_right
+              </Icon>
+            </Hidden>
+            <Hidden mdUp>
+              <div className={classes.controlsText}>
+                <h1>{fleet[active].name}</h1>
+                <Typography style={{ opacity: 0.6 }} paragraph>
+                  od {fleet[active].lowestPrice}zł/h
+                </Typography>
+              </div>
+              <div>
+                <Icon className={classes.arrows} onClick={handlePrev}>
+                  keyboard_arrow_left
+                </Icon>
+                <Icon className={classes.arrows} onClick={handleNext}>
+                  keyboard_arrow_right
+                </Icon>
+              </div>
+            </Hidden>
           </div>
           <div className={classes.buttonContainer}>
             <Button variant="outlined" onClick={openSpecs}>
@@ -173,6 +193,8 @@ const FleetSelector = ({ classes }) => {
             </Button>
             <Button variant="contained">Wypożycz</Button>
           </div>
+          <br />
+          <br />
         </div>
       </div>
       <Dialog open={specsOpen} onClose={closeSpecs}>
