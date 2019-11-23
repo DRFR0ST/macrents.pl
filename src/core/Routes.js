@@ -8,6 +8,7 @@ import Fleet from 'components/pages/Fleet'
 import Contact from 'components/pages/Contact'
 import Pricing from 'components/pages/Pricing'
 import ErrorPage from 'components/pages/ErrorPage'
+import CarPreview from '../components/common/CarPreview'
 
 const styles = {
   root: {},
@@ -22,6 +23,7 @@ const Routes = ({ classes }) => {
         <Route exact path="/fleet" component={Fleet} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/pricing" component={Pricing} />
+        <Route path="/vehicle/:id" component={CarPreview} />
         <Route component={ErrorPage} />
       </Switch>
     </div>

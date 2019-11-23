@@ -9,13 +9,9 @@ import {
   DialogContent,
   Dialog,
 } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
-import ExampleVehicle from 'images/fleet/exampleVehicle.jpg'
-import ExampleVehicle2 from 'images/fleet/exampleVehicle3.png'
-import ExampleVehicle3 from 'images/fleet/exampleVehicle4.png'
-import ExampleVehicle4 from 'images/fleet/exampleVehicle5.png'
-import ExampleVehicle5 from 'images/fleet/exampleVehicle6.jpg'
-import ExampleVehicle6 from 'images/fleet/exampleVehicle7.jpg'
+import fleet from '../../api/fleet.js'
 
 const styles = {
   root: {
@@ -130,46 +126,8 @@ const styles = {
   },
 }
 
-const fleet = [
-  {
-    name: 'BMW 4 Series Coupe',
-    image: ExampleVehicle,
-    flip: false,
-    price: 420,
-  },
-  {
-    name: 'BMW M4 Coupe & Convertible',
-    image: ExampleVehicle5,
-    flip: false,
-    price: 350,
-  },
-  {
-    name: 'BMW 4 Series Convertible',
-    image: ExampleVehicle6,
-    flip: false,
-    price: 224,
-  },
-  {
-    name: 'Skoda Fabia',
-    image: ExampleVehicle2,
-    flip: false,
-    price: 62,
-  },
-  {
-    name: 'Land Rover Discovery Sport 2.0',
-    image: ExampleVehicle3,
-    flip: false,
-    price: 23,
-  },
-  {
-    name: 'Mazda 6',
-    image: ExampleVehicle4,
-    flip: true,
-    price: 85,
-  },
-]
-
 const FleetSelector = ({ classes }) => {
+  const history = useHistory()
   const [active, setActive] = useState(0)
   const [specsOpen, setSpecsOpen] = useState(false)
 
@@ -179,7 +137,7 @@ const FleetSelector = ({ classes }) => {
     setActive(0 === active ? fleet.length - 1 : active - 1)
 
   const closeSpecs = () => setSpecsOpen(false)
-  const openSpecs = () => setSpecsOpen(true)
+  const openSpecs = () => history.push('/vehicle/' + active)
 
   return (
     <React.Fragment>
@@ -202,7 +160,7 @@ const FleetSelector = ({ classes }) => {
             <div className={classes.controlsText}>
               <h1>{fleet[active].name}</h1>
               <Typography style={{ opacity: 0.6 }} paragraph>
-                od {fleet[active].price}zł/h
+                od {fleet[active].lowestPrice}zł/h
               </Typography>
             </div>
             <Icon className={classes.arrows} onClick={handleNext}>

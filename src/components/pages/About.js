@@ -45,9 +45,7 @@ const styles = theme => ({
     left: 0,
     bottom: 0,
     right: 0,
-    background: `linear-gradient(to top, ${
-      theme.palette.background.main
-    } 5%, transparent)`,
+    background: `linear-gradient(to top, ${theme.palette.background.main} 5%, transparent)`,
   },
   headerShadowTop: {
     zIndex: 3,
@@ -58,9 +56,7 @@ const styles = theme => ({
     left: 0,
     bottom: 0,
     right: 0,
-    background: `linear-gradient(to top, transparent 99%, ${
-      theme.palette.background.main
-    })`,
+    background: `linear-gradient(to top, transparent 99%, ${theme.palette.background.main})`,
   },
   plusChunk: {
     background: 'transparent',
@@ -92,9 +88,7 @@ const About = ({ classes }) => {
         <div className={classes.headerShadowTop} />
         <img
           className={classes.headerImage}
-          src={`https://source.unsplash.com/WbOn78k-ywU/${
-            window.innerWidth
-          }x450`}
+          src={`https://source.unsplash.com/WbOn78k-ywU/${window.innerWidth}x450`}
           alt="random"
         />
       </div>
