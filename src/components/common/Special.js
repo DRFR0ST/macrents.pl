@@ -81,7 +81,7 @@ const styles = theme => ({
     top: 0,
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(to bottom right, #212121 35%, transparent)',
+    background: 'linear-gradient(to bottom right, #121212d9 35%, transparent)',
   },
   shadowLeft: {
     position: 'absolute',
@@ -90,7 +90,7 @@ const styles = theme => ({
     top: 0,
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(to bottom left, #212121 35%, transparent)',
+    background: 'linear-gradient(to bottom left, #121212d9 35%, transparent)',
   },
 })
 
@@ -148,7 +148,8 @@ const Special = ({ classes }) => {
               size="large"
               style={{ float: 'right' }}
               variant="contained"
-              color="primary">
+              color="primary"
+            >
               {translated.learnMore}
             </Button>
           </div>
@@ -165,7 +166,7 @@ const Special = ({ classes }) => {
         </div>
         <div className={classes.shadowRight} />
         <img
-          src="https://images.unsplash.com/photo-1458531534615-e81e99962807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+          src="https://source.unsplash.com/cTmL8HxP8NQ/"
           className={classes.imageRight2}
           alt="rightpic2"
         />

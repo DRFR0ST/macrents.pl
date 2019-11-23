@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles, Typography } from '@material-ui/core'
+import { useLittera } from 'react-littera'
 
 const styles = theme => ({
   root: {
@@ -23,7 +24,7 @@ const styles = theme => ({
   },
   headerContainer: {
     width: '100%',
-    height: '450px',
+    height: '250px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -80,7 +81,16 @@ const styles = theme => ({
   },
 })
 
+const translations = {
+  about: {
+    en_US: 'About us',
+    pl_PL: 'O nas',
+  },
+}
+
 const About = ({ classes }) => {
+  const [translated] = useLittera(translations)
+
   return (
     <React.Fragment>
       <div className={classes.headerContainer}>
@@ -88,14 +98,18 @@ const About = ({ classes }) => {
         <div className={classes.headerShadowTop} />
         <img
           className={classes.headerImage}
-          src={`https://source.unsplash.com/WbOn78k-ywU/${window.innerWidth}x450`}
+          src={`https://source.unsplash.com/WbOn78k-ywU/${window.innerWidth}x300`}
           alt="random"
         />
       </div>
       <div className={classes.root}>
         <div className={classes.plusChunk} />
         <div className={classes.plusChunk2} />
-        <Typography variant="h3">About us</Typography>
+        <Typography variant="h3">{translated.about}</Typography>
+        <Typography paragraphy>
+          Esse incididunt qui consectetur cupidatat ullamco anim exercitation
+          ullamco velit.
+        </Typography>
         <br />
         <Typography paragraph>
           Aute ea eiusmod nulla velit cillum sunt nisi ea veniam quis voluptate
