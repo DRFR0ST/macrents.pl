@@ -93,9 +93,6 @@ const tabs = [
   {
     key: 'pricing',
   },
-  {
-    key: 'contact',
-  },
 ]
 
 const translations = {
@@ -173,7 +170,8 @@ const Navbar = ({
           <div className={classes.leftSmall}>
             <IconButton
               color="primary"
-              onClick={() => setDrawerOpen(!drawerOpen)}>
+              onClick={() => setDrawerOpen(!drawerOpen)}
+            >
               <Icon>menu</Icon>
             </IconButton>
           </div>
@@ -195,7 +193,8 @@ const Navbar = ({
                 <Button
                   color="primary"
                   variant={activeTab === i ? 'outlined' : 'text'}
-                  onClick={handleClick}>
+                  onClick={handleClick}
+                >
                   {translated[e.key]}
                 </Button>
               )
@@ -206,7 +205,8 @@ const Navbar = ({
                 aria-owns={langMenuOpen ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
                 color="primary"
-                onClick={handleToggle}>
+                onClick={handleToggle}
+              >
                 {languageLabel}
               </IconButton>
               <Popper
@@ -214,14 +214,16 @@ const Navbar = ({
                 anchorEl={langRef.current}
                 transition
                 disablePortal
-                style={{ zIndex: 50 }}>
+                style={{ zIndex: 50 }}
+              >
                 {({ TransitionProps, placement }) => (
                   <Grow
                     {...TransitionProps}
                     style={{
                       transformOrigin:
                         placement === 'bottom' ? 'center top' : 'center bottom',
-                    }}>
+                    }}
+                  >
                     <Paper id="menu-list-grow" className={classes.blackPaper}>
                       <ClickAwayListener onClickAway={handleClose}>
                         <MenuList>
@@ -229,7 +231,8 @@ const Navbar = ({
                             onClick={() => {
                               handleClose()
                               setLanguage('pl_PL')
-                            }}>
+                            }}
+                          >
                             {plFlag}{' '}
                             <Typography style={{ marginLeft: '10px' }}>
                               Polski
@@ -239,7 +242,8 @@ const Navbar = ({
                             onClick={() => {
                               handleClose()
                               setLanguage('en_US')
-                            }}>
+                            }}
+                          >
                             {enFlag}{' '}
                             <Typography style={{ marginLeft: '10px' }}>
                               English

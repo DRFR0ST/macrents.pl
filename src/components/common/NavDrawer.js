@@ -52,10 +52,6 @@ const tabs = [
     key: 'pricing',
     icon: 'attach_money',
   },
-  {
-    key: 'contact',
-    icon: 'phone',
-  },
 ]
 
 const translations = {
@@ -89,7 +85,8 @@ const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
       anchor="left"
       open={toggled}
       onClose={closeDrawer}
-      classes={{ paper: classes.paper }}>
+      classes={{ paper: classes.paper }}
+    >
       <div className={classes.logo}>
         <img src={logo} alt="Logo" />
       </div>
@@ -101,7 +98,8 @@ const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
               onClick={() => {
                 closeDrawer()
                 history.push(tab.key !== 'home' ? `/${tab.key}` : '/')
-              }}>
+              }}
+            >
               <ListItemIcon>
                 <Icon style={{ color: '#fff' }}>{tab.icon}</Icon>
               </ListItemIcon>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import { Typography } from '@material-ui/core'
+import { useLittera } from 'react-littera'
 
 const styles = theme => ({
   root: {
@@ -47,15 +48,22 @@ const styles = theme => ({
   },
 })
 
+const translations = {
+  privacyPolicy: {
+    en_US: 'Privacy policy',
+    pl_PL: 'Polityka prywatności',
+  },
+}
+
 const Footer = ({ classes }) => {
+  const [translated] = useLittera(translations)
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <Typography paragraph>Copyright (c) 2019, VMRents.pl</Typography>
         <div className={classes.links}>
-          <Typography paragraph>Impressum</Typography>
-          <Typography paragraph>Privacy Policy</Typography>
-          <Typography paragraph>Contact</Typography>
+          <Typography paragraph>{translated.privacyPolicy}</Typography>
         </div>
       </div>
     </div>
