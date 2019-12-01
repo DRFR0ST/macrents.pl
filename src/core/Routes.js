@@ -1,18 +1,18 @@
-import React from 'react'
-import { withStyles } from '@material-ui/core'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 
-import Home from 'components/pages/Home'
-import About from 'components/pages/About'
-import Fleet from 'components/pages/Fleet'
-import Contact from 'components/pages/Contact'
-import Pricing from 'components/pages/Pricing'
-import ErrorPage from 'components/pages/ErrorPage'
-import CarPreview from '../components/common/CarPreview'
+import About from 'components/pages/About';
+import CarPreview from '../components/common/CarPreview';
+import Contact from 'components/pages/Contact';
+import ErrorPage from 'components/pages/ErrorPage';
+import Fleet from 'components/pages/Fleet';
+import Home from 'components/pages/Home';
+import Pricing from 'components/pages/Pricing';
+import React from 'react';
+import { withStyles } from '@material-ui/core';
 
 const styles = {
   root: {},
-}
+};
 
 const Routes = ({ classes }) => {
   return (
@@ -27,7 +27,7 @@ const Routes = ({ classes }) => {
         <Route component={ErrorPage} />
       </Switch>
     </div>
-  )
-}
+  );
+};
 
-export default withStyles(styles)(Routes)
+export default withStyles(styles)(Routes);

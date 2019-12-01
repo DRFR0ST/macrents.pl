@@ -1,30 +1,14 @@
-import React, { useState } from 'react'
-import LitteraProvider from 'react-littera'
-import Navbar from 'components/common/Navbar'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Routes from './Routes'
-import { createMuiTheme } from '@material-ui/core'
-import { MuiThemeProvider } from '@material-ui/core/styles'
-import NavDrawer from '../components/common/NavDrawer'
+import React, { useState } from 'react';
+
+import LitteraProvider from 'react-littera';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import NavDrawer from '../components/common/NavDrawer';
+import Navbar from 'components/common/Navbar';
+import { HashRouter as Router } from 'react-router-dom';
+import Routes from './Routes';
+import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      lighter: '#d5b97f',
-      darker: '#7e6542',
-      main: '#a48453',
-    },
-    background: {
-      main: '#212121',
-      lighter: '#424242',
-      darker: '#1a1a1a',
-    },
-  },
-  typography: {
-    fontFamily: "'Titillium Web', sans-serif",
-    color: '#fff',
-  },
   button: {
     color: '#fff',
   },
@@ -37,19 +21,36 @@ const theme = createMuiTheme({
   notchedOutline: {
     borderColor: 'rgba(255, 255, 255, 0.3) !important',
   },
-})
+  palette: {
+    background: {
+      darker: '#1a1a1a',
+      lighter: '#424242',
+      main: '#212121',
+    },
+    primary: {
+      darker: '#7e6542',
+      lighter: '#d5b97f',
+      main: '#a48453',
+    },
+    type: 'dark',
+  },
+  typography: {
+    color: '#fff',
+    fontFamily: "'Titillium Web', sans-serif",
+  },
+});
 
 function App() {
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [language, setLanguage] = useState('pl_PL')
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [language, setLanguage] = useState('pl_PL');
 
-  const basename =
-    process.env.REACT_APP_MODE === 'dev' ? '/' : '/vmrents-website/'
+  /*const basename =
+    process.env.REACT_APP_MODE === 'dev' ? '/' : '/vmrents-website/'*/
 
   return (
     <MuiThemeProvider theme={theme}>
       <LitteraProvider language={language} setLanguage={setLanguage}>
-        <Router basename={basename}>
+        <Router>
           <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
           <Routes />
           <NavDrawer
@@ -59,7 +60,7 @@ function App() {
         </Router>
       </LitteraProvider>
     </MuiThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;
