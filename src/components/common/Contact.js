@@ -1,152 +1,121 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/styles'
-import { Button, Icon, TextField } from '@material-ui/core'
-import { useLittera } from 'react-littera'
+import { Button, Icon, TextField } from '@material-ui/core';
+import React, { useState } from 'react';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    height: 'auto',
-    position: 'relative',
-    padding: '5% 0',
-  },
+import { makeStyles } from '@material-ui/styles';
+import translations from 'translations/contact.trans.js';
+import { useLittera } from 'react-littera';
+
+const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: '1200px',
-    width: '90%',
-    margin: 'auto',
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: 14,
-    boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
     '@media (max-width: 768px)': {
       alignItems: 'center',
       flexDirection: 'column',
       width: '95%',
     },
+    borderRadius: 14,
+    boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+    display: 'flex',
+    justifyContent: 'center',
+    margin: 'auto',
+    maxWidth: '1200px',
+    position: 'relative',
+    width: '90%',
+  },
+  contactContainer: {
+    '& h1': {
+      fontSize: '38px',
+    },
+    color: '#fff',
+    opacity: 1,
+    position: 'relative',
+    zIndex: 90,
+  },
+  flexItem: {
+    '& .material-icons': {
+      width: '10%',
+    },
+    '& p': {
+      borderBottom: `5px solid ${theme.palette.primary.main}`,
+      opacity: 0.85,
+    },
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'flex-start',
   },
   left: {
-    padding: '5%',
-    width: '50%',
-    borderTopLeftRadius: 14,
-    borderBottomLeftRadius: 14,
-    color: theme.typography.color,
-    overflow: 'hidden',
-    position: 'relative',
     '@media (max-width: 768px)': {
-      width: '90%',
       borderBottomLeftRadius: 0,
       borderTopLeftRadius: 14,
       borderTopRightRadius: 14,
+      width: '90%',
     },
+    borderBottomLeftRadius: 14,
+    borderTopLeftRadius: 14,
+    color: theme.typography.color,
+    overflow: 'hidden',
+    padding: '5%',
+    position: 'relative',
+    width: '50%',
   },
   map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    zIndex: 1,
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
     '@media (max-width: 768px)': {
       borderBottomLeftRadius: 0,
       borderTopLeftRadius: 10,
       borderTopRightRadius: 10,
     },
+    borderBottomLeftRadius: 10,
+    borderTopLeftRadius: 10,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+    zIndex: 1,
+  },
+  mapOverlay: {
+    background: 'rgba(21, 21, 21, 0.85)',
+    height: '100.1%',
+    left: 0,
+    position: 'absolute',
+    top: 0,
+    width: '100.1%',
+    zIndex: 2,
   },
   right: {
-    padding: '3% 5%',
-    width: '50%',
-    background: theme.palette.background.darker,
-    borderTopRightRadius: 14,
-    borderBottomRightRadius: 14,
     '@media (max-width: 768px)': {
-      width: '90%',
-      borderTopRightRadius: 0,
       borderBottomLeftRadius: 14,
       borderBottomRightRadius: 14,
+      borderTopRightRadius: 0,
+      width: '90%',
     },
+    background: theme.palette.background.darker,
+    borderBottomRightRadius: 14,
+    borderTopRightRadius: 14,
+    padding: '3% 5%',
+    width: '50%',
+  },
+  root: {
+    height: 'auto',
+    padding: '5% 0',
+    position: 'relative',
+    width: '100%',
   },
   textField: {
     color: '#fff !important',
     margin: '0.8rem 0',
   },
-  mapOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100.1%',
-    height: '100.1%',
-    zIndex: 2,
-    background: 'rgba(21, 21, 21, 0.85)',
-  },
-  contactContainer: {
-    zIndex: 90,
-    position: 'relative',
-    opacity: 1,
-    color: '#fff',
-    '& h1': {
-      fontSize: '38px',
-    },
-  },
-  flexItem: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    '& .material-icons': {
-      width: '10%',
-    },
-    '& p': {
-      opacity: 0.85,
-      borderBottom: `5px solid ${theme.palette.primary.main}`,
-    },
-  },
-}))
-
-const translations = {
-  name: {
-    en_US: 'Name',
-    de_DE: 'Name',
-    pl_PL: 'Imię i Nazwisko',
-  },
-  email: {
-    en_US: 'Email Address',
-    de_DE: 'E-Mail-Addresse',
-    pl_PL: 'Adres E-Mail',
-  },
-  message: {
-    en_US: 'Message',
-    pl_PL: 'Wiadomość',
-    de_DE: 'Nachricht',
-  },
-  phone: {
-    en_US: 'Phone number',
-    de_DE: 'Telefonnummer',
-    pl_PL: 'Numer telefonu',
-  },
-  submit: {
-    en_US: 'Submit',
-    de_DE: 'Senden',
-    pl_PL: 'Wyślij',
-  },
-  contact: {
-    en_US: 'Contact',
-    de_DE: 'Kontakt',
-    pl_PL: 'Kontakt',
-  },
-}
+}));
 
 function Contact() {
-  const classes = useStyles()
-  const [values, setValues] = useState(['', '', '', ''])
-  const [translated] = useLittera(translations)
+  const classes = useStyles();
+  const [values, setValues] = useState(['', '', '', '']);
+  const [translated] = useLittera(translations);
 
   const handleChange = (id, value) => {
-    let vals = [...values]
-    vals[id] = value
-    setValues(vals)
-  }
+    let vals = [...values];
+    vals[id] = value;
+    setValues(vals);
+  };
 
   return (
     <div className={classes.root}>
@@ -184,7 +153,7 @@ function Contact() {
             color="primary"
             placeholder={translated.name}
             value={values[0]}
-            onChange={e => handleChange(0, e.target.value)}
+            onChange={(e) => handleChange(0, e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
@@ -195,7 +164,7 @@ function Contact() {
             placeholder={translated.email}
             type="email"
             value={values[1]}
-            onChange={e => handleChange(1, e.target.value)}
+            onChange={(e) => handleChange(1, e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
@@ -206,7 +175,7 @@ function Contact() {
             placeholder={translated.phone}
             type="phone"
             value={values[2]}
-            onChange={e => handleChange(2, e.target.value)}
+            onChange={(e) => handleChange(2, e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
@@ -217,7 +186,7 @@ function Contact() {
             placeholder={translated.message}
             multiline
             value={values[3]}
-            onChange={e => handleChange(3, e.target.value)}
+            onChange={(e) => handleChange(3, e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
@@ -233,7 +202,7 @@ function Contact() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

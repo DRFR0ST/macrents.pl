@@ -1,90 +1,84 @@
-import React from 'react'
-import { withStyles, Typography } from '@material-ui/core'
-import { useLittera } from 'react-littera'
+import { Typography, withStyles } from '@material-ui/core';
 
-const styles = theme => ({
-  root: {
-    width: '70%',
-    left: '15%',
-    top: '-20vh',
-    zIndex: 5,
-    height: 'auto',
-    padding: '0 0 5% 0',
-    position: 'relative',
-    '@media (max-width: 1250px)': {
-      maxWidth: 'initial',
-      width: '90%',
-      padding: '0 5%',
-      margin: '0 auto',
-      left: 0,
-    },
-    color: '#fff !important',
-  },
-  paper: {
-    width: '80%',
-    maxWidth: '1250px',
-    margin: '2.5% 0',
-    padding: '2rem',
-    background: theme.palette.background.lighter,
-  },
+import React from 'react';
+import translations from 'translations/about.trans.js';
+import { useLittera } from 'react-littera';
+
+const styles = (theme) => ({
   headerContainer: {
-    width: '100%',
     height: '50vh',
-    position: 'relative',
     overflow: 'hidden',
+    position: 'relative',
+    width: '100%',
   },
   headerImage: {
-    position: 'absolute',
-    width: '100vw',
     height: 'auto',
-    top: '50%',
     left: '50%',
+    position: 'absolute',
+    top: '50%',
     transform: 'translate(-50%, -50%)',
+    width: '100vw',
     zIndex: 2,
   },
   headerShadow: {
-    zIndex: 3,
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
     background: `linear-gradient(to top, ${theme.palette.background.main} 10%, transparent)`,
+    bottom: 0,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '100%',
+    zIndex: 3,
+  },
+  paper: {
+    background: theme.palette.background.lighter,
+    margin: '2.5% 0',
+    maxWidth: '1250px',
+    padding: '2rem',
+    width: '80%',
   },
   plusChunk: {
     background: 'transparent',
     backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d5b97f' fill-opacity='0.26'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    width: '44%',
+    bottom: '10%',
     height: '22.5%',
     position: 'absolute',
-    bottom: '10%',
     right: '7%',
+    width: '44%',
     zIndex: 1,
   },
   plusChunk2: {
     background: 'transparent',
     backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d5b97f' fill-opacity='0.26'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    width: '35.5%',
     height: '19%',
+    left: '9%',
     position: 'absolute',
     top: '12.5%',
-    left: '9%',
+    width: '35.5%',
     zIndex: 1,
   },
-})
-
-const translations = {
-  about: {
-    en_US: 'About us',
-    pl_PL: 'O nas',
-    de_DE: 'Über uns',
+  root: {
+    '@media (max-width: 1250px)': {
+      left: 0,
+      margin: '0 auto',
+      maxWidth: 'initial',
+      padding: '0 5%',
+      width: '90%',
+    },
+    color: '#fff !important',
+    height: 'auto',
+    left: '15%',
+    padding: '0 0 5% 0',
+    position: 'relative',
+    top: '-20vh',
+    width: '70%',
+    zIndex: 5,
   },
-}
+});
 
 const About = ({ classes }) => {
-  const [translated] = useLittera(translations)
+  const [translated] = useLittera(translations);
 
   return (
     <div className={classes.container}>
@@ -141,7 +135,7 @@ const About = ({ classes }) => {
         </Typography>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default withStyles(styles)(About)
+export default withStyles(styles)(About);

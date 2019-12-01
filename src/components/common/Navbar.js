@@ -1,44 +1,54 @@
-import React, { useState, useRef } from 'react'
-import PropTypes from 'prop-types'
 import {
-  withStyles,
   Button,
-  Popper,
-  Grow,
-  Paper,
   ClickAwayListener,
-  MenuList,
-  MenuItem,
-  IconButton,
-  Typography,
+  Grow,
   Hidden,
   Icon,
-} from '@material-ui/core'
-import { useLittera } from 'react-littera'
-import { withRouter } from 'react-router-dom'
+  IconButton,
+  MenuItem,
+  MenuList,
+  Paper,
+  Popper,
+  Typography,
+  withStyles,
+} from '@material-ui/core';
+import React, { useRef, useState } from 'react';
 
-import polishFlag from 'images/flags/PL.png'
-import englishFlag from 'images/flags/US.png'
-import germanFlag from 'images/flags/DE.png'
+import PropTypes from 'prop-types';
+import englishFlag from 'images/flags/US.png';
+import germanFlag from 'images/flags/DE.png';
+import logo from 'images/logo.png';
+import polishFlag from 'images/flags/PL.png';
+import translations from 'translations/nav.trans.js';
+import { useLittera } from 'react-littera';
+import { withRouter } from 'react-router-dom';
 
-import logo from 'images/logo.png'
-
-const styles = theme => ({
-  root: {
-    width: '100vw',
-    maxWidth: '100%',
-    height: '64px',
-    background: theme.palette.background.main,
-    position: 'relative',
-    display: 'inline-block',
+const styles = (theme) => ({
+  blackPaper: {
+    background: '#212121',
+    border: `0.5px solid ${theme.palette.primary.main}`,
+    boxShadow: `0px 4px 22px -8px rgba(182, 156, 117, 0.4)`,
+    color: '#FFF',
   },
   content: {
+    alignItems: 'center',
     display: 'flex',
     justifyContent: 'flex-start',
-    alignItems: 'center',
-    position: 'relative',
     maxHeight: '64px',
     padding: '0.5rem 10%',
+    position: 'relative',
+  },
+  left: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    width: '50%',
+  },
+  leftSmall: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    width: '10%',
   },
   logo: {
     maxHeight: 'calc(64px - 1rem)',
@@ -48,38 +58,28 @@ const styles = theme => ({
     maxHeight: 'calc(64px - 1rem)',
     maxWidth: '60%',
   },
-  left: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: '50%',
-  },
   right: {
+    alignItems: 'center',
     display: 'flex',
-    justifyContent: 'space-evenly',
     flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: 'space-evenly',
     width: '50%',
-  },
-  blackPaper: {
-    background: '#212121',
-    border: `0.5px solid ${theme.palette.primary.main}`,
-    color: '#FFF',
-    boxShadow: `0px 4px 22px -8px rgba(182, 156, 117, 0.4)`,
-  },
-  leftSmall: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: '10%',
   },
   rightSmall: {
+    alignItems: 'center',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
     width: '90%',
   },
-})
+  root: {
+    background: theme.palette.background.main,
+    display: 'inline-block',
+    height: '64px',
+    maxWidth: '100%',
+    position: 'relative',
+    width: '100vw',
+  },
+});
 
 const tabs = [
   {
@@ -97,35 +97,7 @@ const tabs = [
   {
     key: 'contact',
   },
-]
-
-const translations = {
-  home: {
-    en_US: 'Home',
-    pl_PL: 'Strona główna',
-    de_DE: 'Home',
-  },
-  about: {
-    en_US: 'About',
-    pl_PL: 'O nas',
-    de_DE: 'Über uns',
-  },
-  pricing: {
-    en_US: 'Pricing',
-    pl_PL: 'Cennik',
-    de_DE: 'Preisliste',
-  },
-  contact: {
-    en_US: 'Contact',
-    pl_PL: 'Kontakt',
-    de_DE: 'Kontakt',
-  },
-  fleet: {
-    en_US: 'Fleet',
-    pl_PL: 'Flota',
-    de_DE: 'Flotte',
-  },
-}
+];
 
 const Navbar = ({
   children,
@@ -135,54 +107,55 @@ const Navbar = ({
   drawerOpen,
   setDrawerOpen,
 }) => {
-  const [activeTab, setActiveTab] = useState(0)
-  const [translated, language, setLanguage] = useLittera(translations)
-  const [langMenuOpen, setLangMenuOpen] = useState(false)
-  const langRef = useRef(null)
+  const [activeTab, setActiveTab] = useState(0);
+  const [translated, language, setLanguage] = useLittera(translations);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const langRef = useRef(null);
   const plFlag = (
     <img
       src={polishFlag}
       alt="Polish Flag"
       style={{ height: '20px', width: 'auto' }}
     />
-  )
+  );
   const enFlag = (
     <img
       src={englishFlag}
       alt="English Flag"
       style={{ height: '20px', width: 'auto' }}
     />
-  )
+  );
   const deFlag = (
     <img
       src={germanFlag}
       alt="German Flag"
       style={{ height: '20px', width: 'auto' }}
     />
-  )
+  );
 
   React.useEffect(() => {
     if (location.pathname.indexOf(tabs[activeTab].key) <= -1) {
-      const newActive = tabs.find(
-        e =>
+      const newActive = tabs.find((e) => {
+        return (
           (e.key === 'home' && location.pathname === '/') ||
           location.pathname.replace('/', '') === e.key
-      )
-      const newIndex = tabs.indexOf(newActive)
-      newIndex > -1 && setActiveTab(newIndex)
+        );
+      });
+      const newIndex = tabs.indexOf(newActive);
+      newIndex > -1 && setActiveTab(newIndex);
     }
-  }, [location.pathname]) // eslint-disable-line
+  }, [location.pathname]); // eslint-disable-line
 
   const flags = {
-    pl_PL: plFlag,
     de_DE: deFlag,
     en_US: enFlag,
-  }
+    pl_PL: plFlag,
+  };
 
-  const languageLabel = flags[language] || enFlag
+  const languageLabel = flags[language] || enFlag;
 
-  const handleToggle = () => setLangMenuOpen(!langMenuOpen)
-  const handleClose = () => setLangMenuOpen(false)
+  const handleToggle = () => setLangMenuOpen(!langMenuOpen);
+  const handleClose = () => setLangMenuOpen(false);
 
   return (
     <div className={classes.root}>
@@ -207,8 +180,8 @@ const Navbar = ({
           <div className={classes.right}>
             {tabs.map((e, i) => {
               const handleClick = () => {
-                history.push(`/${e.key === 'home' ? '' : e.key}`)
-              }
+                history.push(`/${e.key === 'home' ? '' : e.key}`);
+              };
 
               return (
                 <Button
@@ -218,7 +191,7 @@ const Navbar = ({
                 >
                   {translated[e.key]}
                 </Button>
-              )
+              );
             })}
             <div>
               <IconButton
@@ -250,8 +223,8 @@ const Navbar = ({
                         <MenuList>
                           <MenuItem
                             onClick={() => {
-                              handleClose()
-                              setLanguage('pl_PL')
+                              handleClose();
+                              setLanguage('pl_PL');
                             }}
                           >
                             {plFlag}{' '}
@@ -261,8 +234,8 @@ const Navbar = ({
                           </MenuItem>
                           <MenuItem
                             onClick={() => {
-                              handleClose()
-                              setLanguage('en_US')
+                              handleClose();
+                              setLanguage('en_US');
                             }}
                           >
                             {enFlag}{' '}
@@ -272,8 +245,8 @@ const Navbar = ({
                           </MenuItem>
                           <MenuItem
                             onClick={() => {
-                              handleClose()
-                              setLanguage('de_DE')
+                              handleClose();
+                              setLanguage('de_DE');
                             }}
                           >
                             {deFlag}{' '}
@@ -292,11 +265,11 @@ const Navbar = ({
         </Hidden>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Navbar.propTypes = {
   children: PropTypes.node,
-}
+};
 
-export default withStyles(styles)(withRouter(Navbar))
+export default withStyles(styles)(withRouter(Navbar));

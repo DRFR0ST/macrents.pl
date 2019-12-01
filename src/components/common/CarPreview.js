@@ -1,146 +1,110 @@
-import React, { useRef } from 'react'
-import { useParams } from 'react-router-dom'
-import fleet from '../../api/fleet'
-import { makeStyles } from '@material-ui/styles'
-import { useLittera } from 'react-littera'
-import Loader from './Loader'
+import React, { useRef } from 'react';
 
-const useStyles = makeStyles(theme => ({
-  root: {
+import Loader from './Loader';
+import fleet from '../../api/fleet';
+import { makeStyles } from '@material-ui/styles';
+import translations from 'translations/fleet.trans.js';
+import { useLittera } from 'react-littera';
+import { useParams } from 'react-router-dom';
+
+const useStyles = makeStyles((theme) => ({
+  available: {
+    border: '1px solid rgba(255, 255, 255, 0.45)',
+    borderRadius: '12px',
+    padding: '8px 12px',
+  },
+  contentContainer: {
+    '@media (max-width: 768px)': {
+      padding: '3%',
+    },
+    padding: '5% 10%',
     position: 'relative',
+    top: '-185px',
+    zIndex: 99,
+  },
+  contentWrapper: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  description: {
+    opacity: 0.7,
+  },
+  headerShadow: {
+    background: `linear-gradient(to top, ${theme.palette.background.main} 5%, transparent)`,
+    bottom: 0,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
     width: '100%',
-    color: theme.typography.color,
+    zIndex: 3,
   },
   imageContainer: {
-    maxWidth: '100%',
-    overflow: 'hidden',
-    position: 'relative',
-    height: '400px',
     '& img': {
+      height: 'auto',
       top: '50%',
       transform: 'translateY(-50%)',
       width: '100vw',
-      height: 'auto',
     },
+    height: '400px',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  root: {
+    color: theme.typography.color,
+    position: 'relative',
+    width: '100%',
+  },
+  specsContainer: {
+    border: `1px solid ${theme.palette.primary.main}`,
+    borderRadius: '10px',
+    maxWidth: '200px',
+    padding: '5px',
+  },
+  specsItem: {
+    '& p': {
+      '&:last-child': {
+        opacity: 0.75,
+      },
+      margin: 0,
+    },
+    '&:last-child': {
+      borderBottom: 'none',
+    },
+    alignItems: 'center',
+    borderBottom: `1px solid ${theme.palette.primary.dark}`,
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: 0,
+    padding: '1rem',
   },
   thumbnailEl: {
     /* The image used */
     'background-image': 'url("img_girl.jpg")',
 
-    /* Full height */
-    height: '100%',
-
     /* Center and scale the image nicely */
     'background-position': 'center',
     'background-repeat': 'no-repeat',
     'background-size': 'cover',
-  },
-  specsContainer: {
-    maxWidth: '200px',
-    border: `1px solid ${theme.palette.primary.main}`,
-    borderRadius: '10px',
-    padding: '5px',
-  },
-  specsItem: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '1rem',
-    margin: 0,
-    borderBottom: `1px solid ${theme.palette.primary.dark}`,
-    '&:last-child': {
-      borderBottom: 'none',
-    },
-    '& p': {
-      margin: 0,
-      '&:last-child': {
-        opacity: 0.75,
-      },
-    },
-  },
-  contentContainer: {
-    position: 'relative',
-    top: '-185px',
-    padding: '5% 10%',
-    zIndex: 99,
-    '@media (max-width: 768px)': {
-      padding: '3%',
-    },
-  },
-  contentWrapper: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+
+    /* Full height */
+    height: '100%',
   },
   title: {
     textTransform: 'uppercase',
   },
-  description: {
-    opacity: 0.7,
-  },
-  available: {
-    padding: '8px 12px',
-    border: '1px solid rgba(255, 255, 255, 0.45)',
-    borderRadius: '12px',
-  },
-  headerShadow: {
-    zIndex: 3,
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    background: `linear-gradient(to top, ${theme.palette.background.main} 5%, transparent)`,
-  },
-}))
-
-const translations = {
-  yes: {
-    en_US: 'Yes',
-    pl_PL: 'Tak',
-    de_DE: 'Ja',
-  },
-  no: {
-    en_US: 'No',
-    pl_PL: 'Nie',
-    de_DE: 'Nein',
-  },
-  turbo: {
-    en_US: 'Turbo',
-    pl_PL: 'Turbo',
-    de_DE: 'Turbo',
-  },
-  speed: {
-    pl_PL: 'Prędkość',
-    en_US: 'Speed',
-    de_DE: 'Geschwindigkeit',
-  },
-  handling: {
-    pl_PL: 'Prowadzenie',
-    en_US: 'Handling',
-    de_DE: 'Handhabung',
-  },
-  available: {
-    pl_PL: 'Dostępny',
-    en_US: 'Available',
-    de_DE: 'Verfügbar',
-  },
-  notAvailable: {
-    pl_PL: 'Niedostępny',
-    en_US: 'Not available',
-    de_DE: 'Nicht verfügbar',
-  },
-}
+}));
 
 function CarPreview() {
-  const { id } = useParams()
-  const vehicle = useRef(fleet[id])
-  const classes = useStyles()
-  const [translated, language] = useLittera(translations)
+  const { id } = useParams();
+  const vehicle = useRef(fleet[id]);
+  const classes = useStyles();
+  const [translated, language] = useLittera(translations);
 
-  if (!vehicle.current) return <Loader />
+  if (!vehicle.current) return <Loader />;
 
   return (
     <div className={classes.root}>
@@ -167,33 +131,33 @@ function CarPreview() {
           </p>
         ) : (
           vehicle.current.description[language] &&
-          vehicle.current.description[language].map(e => (
+          vehicle.current.description[language].map((e) => (
             <p className={classes.description}>{e}</p>
           ))
         )}
         <br />
         <br />
         <div className={classes.specsContainer}>
-          {Object.keys(vehicle.current.specs).map(e => {
-            const k = translated[e]
+          {Object.keys(vehicle.current.specs).map((e) => {
+            const k = translated[e];
             const v =
               typeof vehicle.current.specs[e] === 'boolean'
                 ? translated[vehicle.current.specs[e]]
                   ? translated['yes']
                   : translated['no']
-                : vehicle.current.specs[e]
+                : vehicle.current.specs[e];
 
             return (
               <div className={classes.specsItem}>
                 <p>{k}</p>
                 <p>{v}</p>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CarPreview
+export default CarPreview;

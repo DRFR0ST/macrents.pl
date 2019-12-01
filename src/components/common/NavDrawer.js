@@ -1,111 +1,79 @@
-import React, { useState } from 'react'
 import {
+  Collapse,
+  Divider,
   Drawer,
+  Icon,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   withStyles,
-  Icon,
-  Divider,
-  Collapse,
-} from '@material-ui/core'
-import { withRouter } from 'react-router-dom'
-import ExpandLess from '@material-ui/icons/ExpandLess'
-import ExpandMore from '@material-ui/icons/ExpandMore'
-import LanguageIcon from '@material-ui/icons/Language'
-import polishFlag from 'images/flags/PL.png'
-import englishFlag from 'images/flags/US.png'
-import germanFlag from 'images/flags/DE.png'
-import logo from 'images/logo.png'
+} from '@material-ui/core';
+import React, { useState } from 'react';
 
-import { useLittera } from 'react-littera'
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import LanguageIcon from '@material-ui/icons/Language';
+import englishFlag from 'images/flags/US.png';
+import germanFlag from 'images/flags/DE.png';
+import logo from 'images/logo.png';
+import polishFlag from 'images/flags/PL.png';
+import translations from 'translations/nav.trans.js';
+import { useLittera } from 'react-littera';
+import { withRouter } from 'react-router-dom';
 
-const styles = theme => ({
-  paper: {
-    backgroundColor: '#212121',
-    width: '100%',
-    color: '#fff',
-    maxWidth: 280,
-    position: 'relative',
-  },
+const styles = (theme) => ({
   logo: {
-    width: '100%',
-    height: '64px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: '1rem 0',
     '& img': {
       maxHeight: '46px',
     },
+    alignItems: 'center',
+    display: 'flex',
+    height: '64px',
+    justifyContent: 'center',
+    margin: '1rem 0',
+    width: '100%',
   },
   nested: {
     paddingLeft: theme.spacing(4),
   },
-})
+  paper: {
+    backgroundColor: '#212121',
+    color: '#fff',
+    maxWidth: 280,
+    position: 'relative',
+    width: '100%',
+  },
+});
 
 const tabs = [
   {
-    key: 'home',
     icon: 'home',
+    key: 'home',
   },
   {
-    key: 'about',
     icon: 'business',
+    key: 'about',
   },
   {
-    key: 'fleet',
     icon: 'style',
+    key: 'fleet',
   },
   {
-    key: 'pricing',
     icon: 'attach_money',
+    key: 'pricing',
   },
   {
-    key: 'contact',
     icon: 'phone',
+    key: 'contact',
   },
-]
-
-const translations = {
-  home: {
-    en_US: 'Home',
-    pl_PL: 'Strona główna',
-    de_DE: 'Home',
-  },
-  about: {
-    en_US: 'About',
-    pl_PL: 'O nas',
-    de_DE: 'Über uns',
-  },
-  pricing: {
-    en_US: 'Pricing',
-    pl_PL: 'Cennik',
-    de_DE: 'Preisliste',
-  },
-  contact: {
-    en_US: 'Contact',
-    pl_PL: 'Kontakt',
-    de_DE: 'Kontakt',
-  },
-  fleet: {
-    en_US: 'Fleet',
-    pl_PL: 'Flota',
-    de_DE: 'Flotte',
-  },
-  language: {
-    en_US: 'Language',
-    pl_PL: 'Język',
-    de_DE: 'Sprache',
-  },
-}
+];
 
 const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
-  const [translated, , setLanguage] = useLittera(translations)
-  const [open, setOpen] = useState(false)
+  const [translated, , setLanguage] = useLittera(translations);
+  const [open, setOpen] = useState(false);
 
-  const handleClick = () => setOpen(v => !v)
+  const handleClick = () => setOpen((v) => !v);
 
   return (
     <Drawer
@@ -119,12 +87,12 @@ const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
       </div>
       <div className={classes.root}>
         <List>
-          {tabs.map(tab => (
+          {tabs.map((tab) => (
             <ListItem
               button
               onClick={() => {
-                closeDrawer()
-                history.push(tab.key !== 'home' ? `/${tab.key}` : '/')
+                closeDrawer();
+                history.push(tab.key !== 'home' ? `/${tab.key}` : '/');
               }}
             >
               <ListItemIcon>
@@ -190,7 +158,7 @@ const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
         </List>
       </div>
     </Drawer>
-  )
-}
+  );
+};
 
-export default withStyles(styles)(withRouter(NavDrawer))
+export default withStyles(styles)(withRouter(NavDrawer));

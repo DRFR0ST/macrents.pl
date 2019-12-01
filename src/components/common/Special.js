@@ -1,125 +1,103 @@
-import React from 'react'
-import { withStyles, Button } from '@material-ui/core'
-import { useLittera } from 'react-littera'
+import { Button, withStyles } from '@material-ui/core';
 
-const styles = theme => ({
-  rootRight: {
-    width: '100vw',
-    maxWidth: '100%',
-    height: '50vh',
-    overflow: 'hidden',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    position: 'relative',
-  },
-  rootLeft: {
-    width: '100vw',
-    maxWidth: '100%',
-    height: '50vh',
-    overflow: 'hidden',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    position: 'relative',
-  },
-  sloganRight: {
-    color: '#fff',
-    width: '50%',
-    textAlign: 'left',
-    zIndex: 1,
-    display: 'flex',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: '0 10%',
-    opacity: 0.8,
-  },
-  sloganLeft: {
-    color: '#fff',
-    width: '50%',
-    textAlign: 'left',
-    zIndex: 1,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: '0 10%',
-    opacity: 0.8,
-  },
-  imageRight: {
-    position: 'absolute',
-    zIndex: -1,
-    left: 0,
-    top: '75%',
-    minWidth: '100%',
-    height: 'auto',
-    transform: 'translateY(-75%)',
-  },
-  imageRight2: {
-    position: 'absolute',
-    zIndex: -1,
-    left: 0,
-    top: '50%',
-    minWidth: '100%',
-    height: 'auto',
-    transform: 'translateY(-50%)',
-  },
+import React from 'react';
+import translations from 'translations/special.trans.js';
+import { useLittera } from 'react-littera';
+
+const styles = (theme) => ({
   imageLeft: {
+    height: 'auto',
+    minWidth: '100%',
     position: 'absolute',
-    zIndex: -1,
     right: 0,
     top: '85%',
-    minWidth: '100%',
-    height: 'auto',
     transform: 'translateY(-85%)',
+    zIndex: -1,
   },
-  shadowRight: {
-    position: 'absolute',
-    zIndex: 0,
+  imageRight: {
+    height: 'auto',
     left: 0,
-    top: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to bottom right, #121212d9 35%, transparent)',
+    minWidth: '100%',
+    position: 'absolute',
+    top: '75%',
+    transform: 'translateY(-75%)',
+    zIndex: -1,
+  },
+  imageRight2: {
+    height: 'auto',
+    left: 0,
+    minWidth: '100%',
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    zIndex: -1,
+  },
+  rootLeft: {
+    alignItems: 'center',
+    display: 'flex',
+    height: '50vh',
+    justifyContent: 'flex-end',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    position: 'relative',
+    width: '100vw',
+  },
+  rootRight: {
+    alignItems: 'center',
+    display: 'flex',
+    height: '50vh',
+    justifyContent: 'flex-start',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    position: 'relative',
+    width: '100vw',
   },
   shadowLeft: {
-    position: 'absolute',
-    zIndex: 0,
+    background: 'linear-gradient(to bottom left, #121212d9 35%, transparent)',
+    height: '100%',
     left: 0,
+    position: 'absolute',
     top: 0,
     width: '100%',
+    zIndex: 0,
+  },
+  shadowRight: {
+    background: 'linear-gradient(to bottom right, #121212d9 35%, transparent)',
     height: '100%',
-    background: 'linear-gradient(to bottom left, #121212d9 35%, transparent)',
+    left: 0,
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+    zIndex: 0,
   },
-})
-
-const translations = {
-  learnMore: {
-    en_US: 'Learn more',
-    de_DE: 'Mehr erfahren',
-    pl_PL: 'Dowiedz się więcej',
+  sloganLeft: {
+    alignItems: 'center',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    opacity: 0.8,
+    padding: '0 10%',
+    textAlign: 'left',
+    width: '50%',
+    zIndex: 1,
   },
-  slogan1: {
-    pl_PL: 'Wypożycz auto na weekend i zapłać do 10% taniej',
-    en_US: 'Rent a car for the weekend and pay up to 10% cheaper',
-    de_DE:
-      'Mieten Sie ein Auto für das Wochenende und zahlen Sie bis zu 10% günstiger',
+  sloganRight: {
+    alignItems: 'center',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    opacity: 0.8,
+    padding: '0 10%',
+    textAlign: 'left',
+    width: '50%',
+    zIndex: 1,
   },
-  slogan2: {
-    pl_PL: 'Dostarcz auto z pełnym bakiem i płać mniej',
-    en_US: 'Deliver the car with a full tank and pay less',
-    de_DE: 'Bringe das Auto mit vollem Tank zurück und bezahl weniger',
-  },
-  slogan3: {
-    pl_PL: 'Zbieraj punkty lojalnościowe za każdy przejechany kilometr',
-    en_US: 'Collect loyalty points for every kilometer driven',
-    de_DE: 'Sammeln Sie Treuepunkte für jeden gefahrenen Kilometer',
-  },
-}
+});
 
 const Special = ({ classes }) => {
-  const [translated] = useLittera(translations)
+  const [translated] = useLittera(translations);
 
   return (
     <div>
@@ -177,7 +155,7 @@ const Special = ({ classes }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default withStyles(styles)(Special)
+export default withStyles(styles)(Special);

@@ -1,63 +1,56 @@
-import React from 'react'
-import { withStyles } from '@material-ui/styles'
-import { Typography } from '@material-ui/core'
-import { useLittera } from 'react-littera'
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import translations from 'translations/footer.trans.js';
+import { useLittera } from 'react-littera';
+import { withStyles } from '@material-ui/styles';
 
-const styles = theme => ({
-  root: {
-    height: '64px',
-    width: '100%',
-    position: 'relative',
-    color: '#fff',
-  },
-  container: {
-    height: '100%',
-    padding: '0 5vw',
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignContent: 'center',
-    alignItems: 'center',
-    '& p': {
-      margin: 0,
-    },
-  },
-  links: {
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    flexDirection: 'row',
-    alignItems: 'center',
-    '& p': {
-      padding: '0 5px',
-      textDecoration: 'underline',
-      cursor: 'pointer',
-      opacity: 0.8,
-      transition: 'opacity 255ms ease',
-      '&:hover': {
-        opacity: 1,
-      },
-    },
-  },
+const styles = (theme) => ({
   '@media (max-width: 767px)': {
     container: {
+      alignContent: 'center',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignContent: 'center',
       textAlign: 'center',
     },
   },
-})
-
-const translations = {
-  privacyPolicy: {
-    en_US: 'Privacy policy',
-    pl_PL: 'Polityka prywatności',
-    de_DE: 'Datenschutzerklärung',
+  container: {
+    '& p': {
+      margin: 0,
+    },
+    alignContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100%',
+    justifyContent: 'space-between',
+    padding: '0 5vw',
   },
-}
+  links: {
+    '& p': {
+      '&:hover': {
+        opacity: 1,
+      },
+      cursor: 'pointer',
+      opacity: 0.8,
+      padding: '0 5px',
+      textDecoration: 'underline',
+      transition: 'opacity 255ms ease',
+    },
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  root: {
+    color: '#fff',
+    height: '64px',
+    position: 'relative',
+    width: '100%',
+  },
+});
 
 const Footer = ({ classes }) => {
-  const [translated] = useLittera(translations)
+  const [translated] = useLittera(translations);
 
   return (
     <div className={classes.root}>
@@ -68,7 +61,7 @@ const Footer = ({ classes }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default withStyles(styles)(Footer)
+export default withStyles(styles)(Footer);
