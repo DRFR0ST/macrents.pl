@@ -7,10 +7,12 @@ const styles = theme => ({
     width: '70%',
     left: '15%',
     height: 'auto',
-    padding: '5% 0',
+    padding: '0 0 5% 0',
     position: 'relative',
     '@media (max-width: 1250px)': {
       maxWidth: 'initial',
+      width: '100%',
+      padding: '0 5%',
       left: 0,
     },
     color: '#fff !important',
@@ -24,7 +26,7 @@ const styles = theme => ({
   },
   headerContainer: {
     width: '100%',
-    height: '250px',
+    height: '300px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -85,6 +87,7 @@ const translations = {
   about: {
     en_US: 'About us',
     pl_PL: 'O nas',
+    de_DE: 'Über uns',
   },
 }
 
@@ -92,13 +95,13 @@ const About = ({ classes }) => {
   const [translated] = useLittera(translations)
 
   return (
-    <React.Fragment>
+    <div className={classes.container}>
       <div className={classes.headerContainer}>
         <div className={classes.headerShadow} />
         <div className={classes.headerShadowTop} />
         <img
           className={classes.headerImage}
-          src={`https://source.unsplash.com/WbOn78k-ywU/${window.innerWidth}x300`}
+          src={`https://source.unsplash.com/KdeqA3aTnBY/${window.innerWidth}x300`}
           alt="random"
         />
       </div>
@@ -143,7 +146,7 @@ const About = ({ classes }) => {
           sint tempor ad aliquip in aute excepteur occaecat proident culpa do.
         </Typography>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 

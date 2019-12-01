@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import fleet from '../../api/fleet'
 import { makeStyles } from '@material-ui/styles'
 import { useLittera } from 'react-littera'
+import Loader from './Loader'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -99,22 +100,37 @@ const translations = {
   yes: {
     en_US: 'Yes',
     pl_PL: 'Tak',
+    de_DE: 'Ja',
   },
   no: {
     en_US: 'No',
     pl_PL: 'Nie',
+    de_DE: 'Nein',
   },
   turbo: {
     en_US: 'Turbo',
     pl_PL: 'Turbo',
+    de_DE: 'Turbo',
   },
   speed: {
     pl_PL: 'Prędkość',
     en_US: 'Speed',
+    de_DE: 'Geschwindigkeit',
   },
   handling: {
     pl_PL: 'Prowadzenie',
     en_US: 'Handling',
+    de_DE: 'Handhabung',
+  },
+  available: {
+    pl_PL: 'Dostępny',
+    en_US: 'Available',
+    de_DE: 'Verfügbar',
+  },
+  notAvailable: {
+    pl_PL: 'Niedostępny',
+    en_US: 'Not available',
+    de_DE: 'Nicht verfügbar',
   },
 }
 
@@ -123,6 +139,8 @@ function CarPreview() {
   const vehicle = useRef(fleet[id])
   const classes = useStyles()
   const [translated, language] = useLittera(translations)
+
+  if (!vehicle.current) return <Loader />
 
   return (
     <div className={classes.root}>
@@ -138,7 +156,9 @@ function CarPreview() {
         <div className={classes.contentWrapper}>
           <h1 className={classes.title}>{vehicle.current.name}</h1>
           <p className={classes.available}>
-            {vehicle.current.available ? 'Dostepny' : 'Niedostepny'}
+            {vehicle.current.available
+              ? translated.available
+              : translated.notAvailable}
           </p>
         </div>
         {typeof vehicle.current.description[language] === 'string' ? (
@@ -146,6 +166,7 @@ function CarPreview() {
             {vehicle.current.description[language]}
           </p>
         ) : (
+          vehicle.current.description[language] &&
           vehicle.current.description[language].map(e => (
             <p className={classes.description}>{e}</p>
           ))

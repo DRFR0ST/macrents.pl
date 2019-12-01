@@ -19,6 +19,7 @@ import { withRouter } from 'react-router-dom'
 
 import polishFlag from 'images/flags/PL.png'
 import englishFlag from 'images/flags/US.png'
+import germanFlag from 'images/flags/DE.png'
 
 import logo from 'images/logo.png'
 
@@ -85,13 +86,16 @@ const tabs = [
     key: 'home',
   },
   {
-    key: 'fleet',
-  },
-  {
     key: 'about',
   },
   {
+    key: 'fleet',
+  },
+  {
     key: 'pricing',
+  },
+  {
+    key: 'contact',
   },
 ]
 
@@ -99,22 +103,27 @@ const translations = {
   home: {
     en_US: 'Home',
     pl_PL: 'Strona główna',
+    de_DE: 'Home',
   },
   about: {
     en_US: 'About',
     pl_PL: 'O nas',
+    de_DE: 'Über uns',
   },
   pricing: {
     en_US: 'Pricing',
     pl_PL: 'Cennik',
+    de_DE: 'Preisliste',
   },
   contact: {
     en_US: 'Contact',
     pl_PL: 'Kontakt',
+    de_DE: 'Kontakt',
   },
   fleet: {
     en_US: 'Fleet',
     pl_PL: 'Flota',
+    de_DE: 'Flotte',
   },
 }
 
@@ -144,6 +153,13 @@ const Navbar = ({
       style={{ height: '20px', width: 'auto' }}
     />
   )
+  const deFlag = (
+    <img
+      src={germanFlag}
+      alt="German Flag"
+      style={{ height: '20px', width: 'auto' }}
+    />
+  )
 
   React.useEffect(() => {
     if (location.pathname.indexOf(tabs[activeTab].key) <= -1) {
@@ -157,8 +173,13 @@ const Navbar = ({
     }
   }, [location.pathname]) // eslint-disable-line
 
-  const languageLabel =
-    language === 'en_US' ? enFlag : language === 'pl_PL' ? plFlag : plFlag
+  const flags = {
+    pl_PL: plFlag,
+    de_DE: deFlag,
+    en_US: enFlag,
+  }
+
+  const languageLabel = flags[language] || enFlag
 
   const handleToggle = () => setLangMenuOpen(!langMenuOpen)
   const handleClose = () => setLangMenuOpen(false)
@@ -247,6 +268,17 @@ const Navbar = ({
                             {enFlag}{' '}
                             <Typography style={{ marginLeft: '10px' }}>
                               English
+                            </Typography>
+                          </MenuItem>
+                          <MenuItem
+                            onClick={() => {
+                              handleClose()
+                              setLanguage('de_DE')
+                            }}
+                          >
+                            {deFlag}{' '}
+                            <Typography style={{ marginLeft: '10px' }}>
+                              Deutsch
                             </Typography>
                           </MenuItem>
                         </MenuList>

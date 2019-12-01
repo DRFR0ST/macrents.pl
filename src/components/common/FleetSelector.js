@@ -11,6 +11,7 @@ import {
   Hidden,
 } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
+import { useLittera } from 'react-littera'
 
 import fleet from '../../api/fleet.js'
 
@@ -128,10 +129,29 @@ const styles = {
   },
 }
 
+const translations = {
+  from: {
+    de_DE: 'von',
+    pl_PL: 'od',
+    en_US: 'from',
+  },
+  spec: {
+    pl_PL: 'Specyfikacja',
+    en_US: 'Specification',
+    de_DE: 'Spezifikation',
+  },
+  rent: {
+    pl_PL: 'Wypożycz',
+    de_DE: 'Miete',
+    en_US: 'Rent',
+  },
+}
+
 const FleetSelector = ({ classes }) => {
   const history = useHistory()
   const [active, setActive] = useState(0)
   const [specsOpen, setSpecsOpen] = useState(false)
+  const [translated] = useLittera(translations)
 
   const handleNext = () =>
     setActive(fleet.length - 1 === active ? 0 : active + 1)
@@ -163,7 +183,7 @@ const FleetSelector = ({ classes }) => {
               <div className={classes.controlsText}>
                 <h1>{fleet[active].name}</h1>
                 <Typography style={{ opacity: 0.6 }} paragraph>
-                  od {fleet[active].lowestPrice}zł/h
+                  {translated.from} {fleet[active].lowestPrice} PLN/h
                 </Typography>
               </div>
               <Icon className={classes.arrows} onClick={handleNext}>
@@ -174,7 +194,7 @@ const FleetSelector = ({ classes }) => {
               <div className={classes.controlsText}>
                 <h1>{fleet[active].name}</h1>
                 <Typography style={{ opacity: 0.6 }} paragraph>
-                  od {fleet[active].lowestPrice}zł/h
+                  {translated.from} {fleet[active].lowestPrice}PLN/h
                 </Typography>
               </div>
               <div>
@@ -189,9 +209,9 @@ const FleetSelector = ({ classes }) => {
           </div>
           <div className={classes.buttonContainer}>
             <Button variant="outlined" onClick={openSpecs}>
-              Specyfikacja
+              {translated.spec}
             </Button>
-            <Button variant="contained">Wypożycz</Button>
+            <Button variant="contained">{translated.rent}</Button>
           </div>
           <br />
           <br />

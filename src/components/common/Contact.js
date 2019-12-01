@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   right: {
     padding: '3% 5%',
     width: '50%',
-    background: theme.palette.background.main,
+    background: theme.palette.background.darker,
     borderTopRightRadius: 14,
     borderBottomRightRadius: 14,
     '@media (max-width: 768px)': {
@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
     width: '100.1%',
     height: '100.1%',
     zIndex: 2,
-    background: 'rgba(21, 21, 21, 0.8)',
+    background: 'rgba(21, 21, 21, 0.85)',
   },
   contactContainer: {
     zIndex: 90,
@@ -107,26 +107,32 @@ const useStyles = makeStyles(theme => ({
 const translations = {
   name: {
     en_US: 'Name',
+    de_DE: 'Name',
     pl_PL: 'Imię i Nazwisko',
   },
   email: {
     en_US: 'Email Address',
+    de_DE: 'E-Mail-Addresse',
     pl_PL: 'Adres E-Mail',
   },
   message: {
     en_US: 'Message',
     pl_PL: 'Wiadomość',
+    de_DE: 'Nachricht',
   },
   phone: {
     en_US: 'Phone number',
+    de_DE: 'Telefonnummer',
     pl_PL: 'Numer telefonu',
   },
   submit: {
     en_US: 'Submit',
+    de_DE: 'Senden',
     pl_PL: 'Wyślij',
   },
   contact: {
     en_US: 'Contact',
+    de_DE: 'Kontakt',
     pl_PL: 'Kontakt',
   },
 }
@@ -157,7 +163,7 @@ function Contact() {
           <div className={classes.contactContainer}>
             <h1>{translated.contact}</h1>
             <div className={classes.flexItem}>
-              <Icon>phone</Icon> <p>+48 123 456 789</p>
+              <Icon>phone</Icon> <p>+48 600 779 749</p>
             </div>
             <div className={classes.flexItem}>
               <Icon>mail</Icon> <p>info@vmrents.pl</p>
@@ -165,7 +171,7 @@ function Contact() {
             <div className={classes.flexItem}>
               <Icon>map</Icon>
               <p>
-                Stanisława Wyspiańskiego 12
+                Stanisława Wyspiańskiego 12/18
                 <br />
                 60-750 Poznań
               </p>

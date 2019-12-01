@@ -97,19 +97,24 @@ const styles = theme => ({
 const translations = {
   learnMore: {
     en_US: 'Learn more',
+    de_DE: 'Mehr erfahren',
     pl_PL: 'Dowiedz się więcej',
   },
   slogan1: {
-    pl_PL: 'Wypożycz auto na weekend i zapłać do 20% taniej',
-    en_US: 'Rent a car for the weekend and pay up to 20% cheaper',
+    pl_PL: 'Wypożycz auto na weekend i zapłać do 10% taniej',
+    en_US: 'Rent a car for the weekend and pay up to 10% cheaper',
+    de_DE:
+      'Mieten Sie ein Auto für das Wochenende und zahlen Sie bis zu 10% günstiger',
   },
   slogan2: {
     pl_PL: 'Dostarcz auto z pełnym bakiem i płać mniej',
     en_US: 'Deliver the car with a full tank and pay less',
+    de_DE: 'Bringe das Auto mit vollem Tank zurück und bezahl weniger',
   },
   slogan3: {
     pl_PL: 'Zbieraj punkty lojalnościowe za każdy przejechany kilometr',
-    en_US: 'Collect loyalty points for each kilometer driven',
+    en_US: 'Collect loyalty points for every kilometer driven',
+    de_DE: 'Sammeln Sie Treuepunkte für jeden gefahrenen Kilometer',
   },
 }
 
@@ -137,7 +142,7 @@ const Special = ({ classes }) => {
       <div className={classes.rootLeft}>
         <div className={classes.shadowLeft} />
         <img
-          src="https://images.unsplash.com/photo-1553055193-a5529553098f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1382&q=80"
+          src="https://source.unsplash.com/ZhEnFcHO0es"
           className={classes.imageLeft}
           alt="centerpic"
         />

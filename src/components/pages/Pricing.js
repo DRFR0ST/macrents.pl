@@ -13,10 +13,12 @@ const styles = theme => ({
     width: '70%',
     left: '15%',
     height: 'auto',
-    padding: '5% 0',
+    padding: '0 0 5% 0',
     position: 'relative',
     '@media (max-width: 1250px)': {
-      maxWidth: 'initial',
+      maxWidth: '82%',
+      width: '100%',
+      padding: '0 5%',
       left: 0,
     },
     color: '#fff !important',
@@ -34,7 +36,7 @@ const styles = theme => ({
   },
   headerContainer: {
     width: '100%',
-    height: '250px',
+    height: '300px',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -88,6 +90,7 @@ const translations = {
   pricing: {
     en_US: 'Pricing',
     pl_PL: 'Cennik',
+    de_DE: 'Preisliste',
   },
 }
 
