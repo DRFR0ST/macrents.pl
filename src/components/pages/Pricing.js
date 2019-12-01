@@ -62,17 +62,6 @@ const styles = theme => ({
     right: 0,
     background: `linear-gradient(to top, ${theme.palette.background.main} 10%, transparent)`,
   },
-  headerShadowTop: {
-    zIndex: 3,
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    background: `linear-gradient(to top, transparent 99%, ${theme.palette.background.main})`,
-  },
 })
 
 function createData(name, hourly, daily, monthly, yearly) {
@@ -103,7 +92,6 @@ const Pricing = ({ classes }) => {
     <React.Fragment>
       <div className={classes.headerContainer}>
         <div className={classes.headerShadow} />
-        <div className={classes.headerShadowTop} />
         <img
           className={classes.headerImage}
           src={`https://source.unsplash.com/n95VMLxqM2I/${
