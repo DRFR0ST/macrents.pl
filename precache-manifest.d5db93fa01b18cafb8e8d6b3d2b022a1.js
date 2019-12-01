@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0114f5056dd1014524ff71ed1a41c2cc",
+    "revision": "362e62f2bcb3fc91dbe17885af35d330",
     "url": "/vmrents-website/index.html"
   },
   {
-    "revision": "3c30c4b5096b74bd750c",
+    "revision": "9539c7c6380be44dd37e",
     "url": "/vmrents-website/static/css/main.16867338.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vmrents-website/static/js/2.905ff5ad.chunk.js"
   },
   {
-    "revision": "3c30c4b5096b74bd750c",
-    "url": "/vmrents-website/static/js/main.79b1f32d.chunk.js"
+    "revision": "9539c7c6380be44dd37e",
+    "url": "/vmrents-website/static/js/main.011acee8.chunk.js"
   },
   {
     "revision": "c3f1d09cdeb9fd13002a",
