@@ -6,13 +6,16 @@ const styles = theme => ({
   root: {
     width: '70%',
     left: '15%',
+    top: '-20vh',
+    zIndex: 5,
     height: 'auto',
     padding: '0 0 5% 0',
     position: 'relative',
     '@media (max-width: 1250px)': {
       maxWidth: 'initial',
-      width: '100%',
+      width: '90%',
       padding: '0 5%',
+      margin: '0 auto',
       left: 0,
     },
     color: '#fff !important',
@@ -26,7 +29,7 @@ const styles = theme => ({
   },
   headerContainer: {
     width: '100%',
-    height: '300px',
+    height: '50vh',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -34,9 +37,9 @@ const styles = theme => ({
     position: 'absolute',
     width: '100vw',
     height: 'auto',
-    top: 0,
+    top: '50%',
     left: '50%',
-    transform: 'translateX(-50%)',
+    transform: 'translate(-50%, -50%)',
     zIndex: 2,
   },
   headerShadow: {
@@ -48,7 +51,7 @@ const styles = theme => ({
     left: 0,
     bottom: 0,
     right: 0,
-    background: `linear-gradient(to top, ${theme.palette.background.main} 5%, transparent)`,
+    background: `linear-gradient(to top, ${theme.palette.background.main} 10%, transparent)`,
   },
   headerShadowTop: {
     zIndex: 3,
@@ -101,7 +104,9 @@ const About = ({ classes }) => {
         <div className={classes.headerShadowTop} />
         <img
           className={classes.headerImage}
-          src={`https://source.unsplash.com/KdeqA3aTnBY/${window.innerWidth}x300`}
+          src={`https://source.unsplash.com/KdeqA3aTnBY/${
+            window.innerWidth
+          }x${window.innerHeight / 2}`}
           alt="random"
         />
       </div>
@@ -109,6 +114,7 @@ const About = ({ classes }) => {
         <div className={classes.plusChunk} />
         <div className={classes.plusChunk2} />
         <Typography variant="h3">{translated.about}</Typography>
+        <br />
         <Typography paragraphy>
           Esse incididunt qui consectetur cupidatat ullamco anim exercitation
           ullamco velit.

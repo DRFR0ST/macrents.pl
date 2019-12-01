@@ -48,7 +48,12 @@ const Contact = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <img src={`https://source.unsplash.com/7nrsVjvALnA/`} alt="Traffic" />
+        <img
+          src={`https://source.unsplash.com/7nrsVjvALnA/${
+            window.innerWidth
+          }x${window.innerHeight / 2}`}
+          alt="Traffic"
+        />
         <div className={classes.shadow} />
       </div>
       <div className={classes.content}>

@@ -12,6 +12,8 @@ const styles = theme => ({
   root: {
     width: '70%',
     left: '15%',
+    top: '-20vh',
+    zIndex: 5,
     height: 'auto',
     padding: '0 0 5% 0',
     position: 'relative',
@@ -36,7 +38,7 @@ const styles = theme => ({
   },
   headerContainer: {
     width: '100%',
-    height: '300px',
+    height: '50vh',
     position: 'relative',
     overflow: 'hidden',
   },
@@ -44,9 +46,9 @@ const styles = theme => ({
     position: 'absolute',
     width: '100vw',
     height: 'auto',
-    top: 0,
+    top: '50%',
     left: '50%',
-    transform: 'translateX(-50%)',
+    transform: 'translate(-50%, -50%)',
     zIndex: 2,
   },
   headerShadow: {
@@ -58,7 +60,7 @@ const styles = theme => ({
     left: 0,
     bottom: 0,
     right: 0,
-    background: `linear-gradient(to top, ${theme.palette.background.main} 5%, transparent)`,
+    background: `linear-gradient(to top, ${theme.palette.background.main} 10%, transparent)`,
   },
   headerShadowTop: {
     zIndex: 3,
@@ -104,12 +106,15 @@ const Pricing = ({ classes }) => {
         <div className={classes.headerShadowTop} />
         <img
           className={classes.headerImage}
-          src={`https://source.unsplash.com/n95VMLxqM2I/${window.innerWidth}x300`}
+          src={`https://source.unsplash.com/n95VMLxqM2I/${
+            window.innerWidth
+          }x${window.innerHeight / 2}`}
           alt="random"
         />
       </div>
       <div className={classes.root}>
         <Typography variant="h3">{translated.pricing}</Typography>
+        <br />
         <Typography paragraphy>
           Commodo eu magna in fugiat Lorem enim ea do nisi ex ullamco et laboris
           eiusmod.
