@@ -1,7 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { useLittera } from 'react-littera'
-import { Typography } from '@material-ui/core'
 import ContactForm from '../common/Contact'
 
 const useStyles = makeStyles(theme => ({
@@ -44,17 +42,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const translations = {
-  title: {
-    de_DE: 'Kontakt',
-    pl_PL: 'Kontakt',
-    en_US: 'Contact',
-  },
-}
-
 const Contact = () => {
   const classes = useStyles()
-  const [translated] = useLittera(translations)
 
   return (
     <div className={classes.root}>
