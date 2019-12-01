@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "sort-imports": "warn",
+    "sort-keys": "warn",
+    "sort-vars": "warn"
+  }
+}
