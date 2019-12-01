@@ -1,49 +1,49 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/styles'
-import ContactForm from '../common/Contact'
+import ContactForm from '../common/Contact';
+import React from 'react';
+import { makeStyles } from '@material-ui/styles';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    position: 'relative',
-  },
+const useStyles = makeStyles((theme) => ({
   content: {
-    width: '100%',
-    height: '100%',
-    margin: '0 auto',
     color: '#FFF',
-    top: '80%',
+    height: '100%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    margin: '0 auto',
     position: 'absolute',
+    top: '80%',
+    transform: 'translate(-50%, -50%)',
+    width: '100%',
   },
   header: {
-    width: '100%',
-    height: '50vh',
-    position: 'relative',
-    overflow: 'hidden',
     '& img': {
-      width: '100%',
       height: 'auto',
+      left: '50%',
+      opacity: 0.7,
       position: 'absolute',
       top: '50%',
-      left: '50%',
       transform: 'translate(-50%, -50%)',
-      opacity: 0.7,
+      width: '100%',
     },
+    height: '50vh',
+    overflow: 'hidden',
+    position: 'relative',
+    width: '100%',
+  },
+  root: {
+    position: 'relative',
+    width: '100%',
   },
   shadow: {
-    width: '100%',
-    height: '100%',
     background: `linear-gradient(to top, ${theme.palette.background.main} 5%, transparent)`,
-    top: 0,
+    height: '100%',
     left: 0,
     position: 'absolute',
+    top: 0,
+    width: '100%',
   },
-}))
+}));
 
 const Contact = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -60,7 +60,7 @@ const Contact = () => {
         <ContactForm />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

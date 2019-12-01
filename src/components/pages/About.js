@@ -14,6 +14,7 @@ const styles = (theme) => ({
   headerImage: {
     height: 'auto',
     left: '50%',
+    opacity: 0.7,
     position: 'absolute',
     top: '50%',
     transform: 'translate(-50%, -50%)',
