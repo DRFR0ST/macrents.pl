@@ -130,10 +130,10 @@ const Pricing = ({ classes }) => {
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.hourly}zł</TableCell>
-                  <TableCell align="right">{row.daily}zł</TableCell>
-                  <TableCell align="right">{row.monthly}zł</TableCell>
-                  <TableCell align="right">{row.yearly}zł</TableCell>
+                  <TableCell align="right">{row.hourly} PLN</TableCell>
+                  <TableCell align="right">{row.daily} PLN</TableCell>
+                  <TableCell align="right">{row.monthly} PLN</TableCell>
+                  <TableCell align="right">{row.yearly} PLN</TableCell>
                 </TableRow>
               ))}
             </TableBody>
