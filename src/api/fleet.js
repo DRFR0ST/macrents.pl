@@ -3,7 +3,7 @@ import ExampleVehicle10 from 'images/fleet/mercedes-benz-e-class-saloon-se-black
 import ExampleVehicle11 from 'images/fleet/audi-q7-blue.png';
 import ExampleVehicle2 from 'images/fleet/toppng.com-mercedes-a-class-side-view-1834x633.png';
 import ExampleVehicle3 from 'images/fleet/skoda-octavia-combi-15-tsi-110-kw-150-km-7-biegowa-automatyczna-dsg-bez-cappuccino-metalizowany-tmbjr7ne9k0119210-exteriorside.png';
-import ExampleVehicle4 from 'images/fleet/12003_cc0640_001_475.png';
+import ExampleVehicle4 from 'images/fleet/skoda-octavia-15-tsi-110-kw-150-km-6-biegowa-manualna-szary-quartz-metalizowany-tmbar7ne1k0110601-exteriorside_1.png';
 import ExampleVehicle5 from 'images/fleet/hiclipart.com.png';
 import ExampleVehicle6 from 'images/fleet/878veh.0435i.18.Jet_Black.webp';
 import ExampleVehicle7 from 'images/fleet/2018BMC780004_1280_03.webp';
@@ -23,7 +23,7 @@ export default [
         'Ea officia magna nulla dolore velit sit reprehenderit tempor velit. Pariatur velit laborum dolor irure aute pariatur officia adipisicing veniam. Qui aliquip ut pariatur cillum adipisicing. Enim elit laboris culpa amet adipisicing pariatur duis mollit. Dolor sunt magna nulla velit pariatur non reprehenderit sit laboris duis incididunt occaecat velit culpa.',
       ],
       pl_PL: [
-        'Czujniki parkowania, kamera cofaina, podrzewane fotele, zestaw głośnomówiący, SmartLink',
+        'Czujniki parkowania, kamera cofania, podrzewane fotele, zestaw głośnomówiący, SmartLink',
       ],
     },
     flip: false,
@@ -259,7 +259,7 @@ export default [
         'Ea officia magna nulla dolore velit sit reprehenderit tempor velit. Pariatur velit laborum dolor irure aute pariatur officia adipisicing veniam. Qui aliquip ut pariatur cillum adipisicing. Enim elit laboris culpa amet adipisicing pariatur duis mollit. Dolor sunt magna nulla velit pariatur non reprehenderit sit laboris duis incididunt occaecat velit culpa.',
       ],
       pl_PL: [
-        'Pakiet AMG, czujniki parkowania, kamera cofaina 360°, podgrzewane fotele, zestaw głośnomówiący, SmartLink',
+        'Pakiet AMG, czujniki parkowania, kamera cofania 360°, podgrzewane fotele, zestaw głośnomówiący, SmartLink',
       ],
     },
     flip: false,
@@ -289,7 +289,7 @@ export default [
         'Ea officia magna nulla dolore velit sit reprehenderit tempor velit. Pariatur velit laborum dolor irure aute pariatur officia adipisicing veniam. Qui aliquip ut pariatur cillum adipisicing. Enim elit laboris culpa amet adipisicing pariatur duis mollit. Dolor sunt magna nulla velit pariatur non reprehenderit sit laboris duis incididunt occaecat velit culpa.',
       ],
       pl_PL: [
-        'Czujniki parkowania, kamera cofaina 360°, podgrzewane fotele, zestaw głośnomówiący, SmartLink',
+        'Czujniki parkowania, kamera cofania 360°, podgrzewane fotele, zestaw głośnomówiący, SmartLink',
       ],
     },
     flip: false,

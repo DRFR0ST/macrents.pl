@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import React, { useState } from 'react';
 
+import Payment from './Payment.js';
 import fleet from '../../api/fleet.js';
 import translations from 'translations/fleet.trans.js';
 import { useHistory } from 'react-router-dom';
@@ -142,6 +143,10 @@ const FleetSelector = ({ classes }) => {
   const [active, setActive] = useState(0);
   const [specsOpen, setSpecsOpen] = useState(false);
   const [translated] = useLittera(translations);
+  const [rentOpen, setRentOpen] = useState(false);
+
+  const closeRent = () => setRentOpen(false);
+  const openRent = () => setRentOpen(true);
 
   const handleNext = () =>
     setActive(fleet.length - 1 === active ? 0 : active + 1);
@@ -201,7 +206,9 @@ const FleetSelector = ({ classes }) => {
             <Button variant="outlined" onClick={openSpecs}>
               {translated.spec}
             </Button>
-            <Button variant="contained">{translated.rent}</Button>
+            <Button onClick={openRent} variant="contained">
+              {translated.rent}
+            </Button>
           </div>
           <br />
           <br />
@@ -222,6 +229,7 @@ const FleetSelector = ({ classes }) => {
           <Button onClick={closeSpecs}>Zamknij</Button>
         </DialogActions>
       </Dialog>
+      <Payment open={rentOpen} handleClose={closeRent} />
     </React.Fragment>
   );
 };

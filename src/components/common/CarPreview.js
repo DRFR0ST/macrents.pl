@@ -101,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textTransform: 'uppercase',
+    marginBottom: 0,
   },
 }));
 
@@ -124,8 +125,12 @@ function CarPreview() {
       </div>
       <div className={classes.contentContainer}>
         <div className={classes.contentWrapper}>
-          <h1 className={classes.title}>{vehicle.current.name}</h1>
-          <p className={classes.available}>{vehicle.current.type}</p>
+          <div>
+            <h1 className={classes.title}>{vehicle.current.name}</h1>
+            <p style={{ marginTop: 0, opacity: 0.75 }}>
+              {vehicle.current.type}
+            </p>
+          </div>
         </div>
         <h3 className={classes.brandedColor}>Wyposażenie</h3>
         {typeof vehicle.current.description[language] === 'string' ? (

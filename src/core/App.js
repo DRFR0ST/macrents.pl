@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import LitteraProvider from 'react-littera';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import NavDrawer from '../components/common/NavDrawer';
 import Navbar from 'components/common/Navbar';
@@ -48,18 +50,20 @@ function App() {
     process.env.REACT_APP_MODE === 'dev' ? '/' : '/vmrents-website/'*/
 
   return (
-    <MuiThemeProvider theme={theme}>
-      <LitteraProvider language={language} setLanguage={setLanguage}>
-        <Router>
-          <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
-          <Routes />
-          <NavDrawer
-            toggled={drawerOpen}
-            closeDrawer={() => setDrawerOpen(false)}
-          />
-        </Router>
-      </LitteraProvider>
-    </MuiThemeProvider>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiThemeProvider theme={theme}>
+        <LitteraProvider language={language} setLanguage={setLanguage}>
+          <Router>
+            <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+            <Routes />
+            <NavDrawer
+              toggled={drawerOpen}
+              closeDrawer={() => setDrawerOpen(false)}
+            />
+          </Router>
+        </LitteraProvider>
+      </MuiThemeProvider>
+    </MuiPickersUtilsProvider>
   );
 }
 
