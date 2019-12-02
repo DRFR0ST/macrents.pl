@@ -1,27 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "037f9c16d41a078be01ceeb6a769dd8d",
+    "revision": "8432f3c402d468f13ba045d84bceedae",
     "url": "/vmrents-website/index.html"
   },
   {
-    "revision": "d95b2b03a16deda430ba",
+    "revision": "6118d32c3041437eceb9",
     "url": "/vmrents-website/static/css/main.16867338.chunk.css"
   },
   {
-    "revision": "0441df8bb27348e937ff",
-    "url": "/vmrents-website/static/js/2.e594acdc.chunk.js"
+    "revision": "cde64ad65367fe606929",
+    "url": "/vmrents-website/static/js/2.d0b0dac6.chunk.js"
   },
   {
-    "revision": "d95b2b03a16deda430ba",
-    "url": "/vmrents-website/static/js/main.25902ca6.chunk.js"
+    "revision": "6118d32c3041437eceb9",
+    "url": "/vmrents-website/static/js/main.7c303f73.chunk.js"
   },
   {
     "revision": "c3f1d09cdeb9fd13002a",
     "url": "/vmrents-website/static/js/runtime~main.19a53148.js"
-  },
-  {
-    "revision": "32ee55de016a563cac98c19214b3186f",
-    "url": "/vmrents-website/static/media/12003_cc0640_001_475.32ee55de.png"
   },
   {
     "revision": "0d11fa6828a41a5fb82dc71e27a310e8",
@@ -62,6 +58,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b27560c5d96939ecead35a997495b322",
     "url": "/vmrents-website/static/media/mercedes-benz-e-class-saloon-se-black.b27560c5.png"
+  },
+  {
+    "revision": "57e60a5095bbba07f69e8378031129bb",
+    "url": "/vmrents-website/static/media/skoda-octavia-15-tsi-110-kw-150-km-6-biegowa-manualna-szary-quartz-metalizowany-tmbar7ne1k0110601-exteriorside_1.57e60a50.png"
   },
   {
     "revision": "5311d5da2fa8223ede13f9647422a489",
