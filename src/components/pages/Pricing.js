@@ -65,9 +65,28 @@ const styles = (theme) => ({
   table: {
     minWidth: 650,
   },
+  tableHeader: {
+    color: theme.palette.primary.lighter,
+    fontWeight: 'bold',
+  },
+  caption: {
+    color: theme.palette.primary.lighter,
+    margin: 0,
+    padding: 0,
+  },
+  slogan: {
+    color: theme.palette.primary.lighter,
+  },
 });
 
 function createData(name, hourly, daily, monthly, yearly) {
+  if (name && hourly === -1 && daily === -1) {
+    return { cat: true, name };
+  }
+
+  if (!hourly && !daily && !monthly && !yearly)
+    return { cat: true, name, daily: '', hourly: '', monthly: '', yearly: '' };
+
   return {
     daily,
     hourly,
@@ -78,12 +97,23 @@ function createData(name, hourly, daily, monthly, yearly) {
 }
 
 const rows = [
-  createData('Example', 24, 120, 1000, 5000),
-  createData('Example', 16, 160, 1340, 2000),
-  createData('Example', 27, 175, 1500, 4000),
-  createData('Example', 32, 180, 2500, 6000),
-  createData('Example', 69, 200, 3000, 8000),
-  createData('Example', 69, 300, 5000, 10000),
+  createData('Klasa B', -1, -1, -1, -1),
+  createData('Skoda Rapid (sedan)', 119, 109, 99, 89),
+  createData('Klasa C', -1, -1, -1, -1),
+  createData('Mercedes A Klasa (hatchback)', 139, 129, 119, 109),
+  createData('Klasa D', -1, -1, -1, -1),
+  createData('Skoda Octavia (sedan)', 159, 149, 129, 119),
+  createData('Skoda Octavia (kombi)', 169, 159, 139, 129),
+  createData('Klasa D+', -1, -1, -1, -1),
+  createData('Jaguar XE (sedan)', '249', 239, 229, 219),
+  createData('BMW 4 GranCoupe (sedan)', 309, 299, 289, 279),
+  createData('BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
+  createData('Klasa E', -1, -1, -1, -1),
+  createData('BMW Seria 5 (sedan)', 319, 309, 299, 279),
+  createData('Mercedes E Klasa AMG (sedan)', 309, 299, 289, 269),
+  createData('Mercedes E Klasa (sedan)', 299, 289, 279, 269),
+  createData('Klasa S', -1, -1, -1, -1),
+  createData('Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
 ];
 
 const Pricing = ({ classes }) => {
@@ -104,35 +134,64 @@ const Pricing = ({ classes }) => {
       <div className={classes.root}>
         <Typography variant="h3">{translated.pricing}</Typography>
         <br />
-        <Typography paragraphy>
-          Commodo eu magna in fugiat Lorem enim ea do nisi ex ullamco et laboris
-          eiusmod.
+        <Typography paragraphy className={classes.slogan}>
+          {translated.slogan}
         </Typography>
         <br />
         <br />
         <br />
         <Paper className={classes.paper}>
           <Table className={classes.table} aria-label="simple table">
-            <caption>{translated.prefilled}</caption>
+            <caption className={classes.caption}>
+              * Wyżej wymienione ceny są cenami netto
+            </caption>
+            <caption className={classes.caption}>
+              * {translated.prefilled}
+            </caption>
             <TableHead>
-              <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell align="right">Hourly</TableCell>
-                <TableCell align="right">Daily</TableCell>
-                <TableCell align="right">Monthly</TableCell>
-                <TableCell align="right">Yearly</TableCell>
+              <TableRow className={classes.tableHeader}>
+                <TableCell className={classes.tableHeader}>Samochód</TableCell>
+                <TableCell className={classes.tableHeader} align="right">
+                  1-3 dni
+                  <br />
+                  (limit 300km)
+                </TableCell>
+                <TableCell className={classes.tableHeader} align="right">
+                  4-7 dni
+                </TableCell>
+                <TableCell className={classes.tableHeader} align="right">
+                  8-14 dni
+                </TableCell>
+                <TableCell className={classes.tableHeader} align="right">
+                  15-31 dni
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
                 <TableRow hover key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.hourly} PLN</TableCell>
-                  <TableCell align="right">{row.daily} PLN</TableCell>
-                  <TableCell align="right">{row.monthly} PLN</TableCell>
-                  <TableCell align="right">{row.yearly} PLN</TableCell>
+                  {row.cat && (
+                    <React.Fragment>
+                      <TableCell></TableCell>
+                      <TableCell></TableCell>
+                      <TableCell style={{ fontWeight: 'bold' }}>
+                        {row.name}
+                      </TableCell>
+                      <TableCell></TableCell>
+                      <TableCell></TableCell>
+                    </React.Fragment>
+                  )}
+                  {!row.cat && (
+                    <React.Fragment>
+                      <TableCell component="th" scope="row">
+                        {row.name}
+                      </TableCell>
+                      <TableCell align="right">{row.hourly} PLN</TableCell>
+                      <TableCell align="right">{row.daily} PLN</TableCell>
+                      <TableCell align="right">{row.monthly} PLN</TableCell>
+                      <TableCell align="right">{row.yearly} PLN</TableCell>
+                    </React.Fragment>
+                  )}
                 </TableRow>
               ))}
             </TableBody>

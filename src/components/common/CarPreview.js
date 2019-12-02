@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '12px',
     padding: '8px 12px',
   },
+  brandedColor: {
+    color: theme.palette.primary.lighter,
+  },
   contentContainer: {
     '@media (max-width: 768px)': {
       padding: '3%',
@@ -61,11 +64,14 @@ const useStyles = makeStyles((theme) => ({
   specsContainer: {
     border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: '10px',
-    maxWidth: '200px',
+    maxWidth: '300px',
     padding: '5px',
   },
   specsItem: {
     '& p': {
+      '&:first-child': {
+        color: theme.palette.primary.lighter,
+      },
       '&:last-child': {
         opacity: 0.75,
       },
@@ -75,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: 'none',
     },
     alignItems: 'center',
-    borderBottom: `1px solid ${theme.palette.primary.dark}`,
+    borderBottom: `1px solid ${theme.palette.primary.darker}`,
     display: 'flex',
     justifyContent: 'space-between',
     margin: 0,
@@ -119,12 +125,9 @@ function CarPreview() {
       <div className={classes.contentContainer}>
         <div className={classes.contentWrapper}>
           <h1 className={classes.title}>{vehicle.current.name}</h1>
-          <p className={classes.available}>
-            {vehicle.current.available
-              ? translated.available
-              : translated.notAvailable}
-          </p>
+          <p className={classes.available}>{vehicle.current.type}</p>
         </div>
+        <h3 className={classes.brandedColor}>Wyposażenie</h3>
         {typeof vehicle.current.description[language] === 'string' ? (
           <p className={classes.description}>
             {vehicle.current.description[language]}

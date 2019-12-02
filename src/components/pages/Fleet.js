@@ -1,5 +1,5 @@
-import React from 'react'
 import FleetSelector from '../common/FleetSelector'
+import React from 'react'
 
 const Fleet = () => {
   return <FleetSelector />

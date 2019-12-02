@@ -34,15 +34,30 @@ export default {
     en_US: 'Specification',
     pl_PL: 'Specyfikacja',
   },
-  speed: {
+  engf: {
     de_DE: 'Geschwindigkeit',
     en_US: 'Speed',
-    pl_PL: 'Prędkość',
+    pl_PL: 'Pojemność silnika',
   },
-  turbo: {
+  fuel: {
+    de_DE: 'Geschwindigkeit',
+    en_US: 'Speed',
+    pl_PL: 'Paliwo',
+  },
+  power: {
+    de_DE: 'Geschwindigkeit',
+    en_US: 'Speed',
+    pl_PL: 'Moc silnika',
+  },
+  biegi: {
+    de_DE: 'Geschwindigkeit',
+    en_US: 'Speed',
+    pl_PL: 'Skrzynia biegów',
+  },
+  prod: {
     de_DE: 'Turbo',
     en_US: 'Turbo',
-    pl_PL: 'Turbo',
+    pl_PL: 'Rok produkcji',
   },
   yes: {
     de_DE: 'Ja',
