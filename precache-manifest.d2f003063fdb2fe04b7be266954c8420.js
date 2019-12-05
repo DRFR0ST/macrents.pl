@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8432f3c402d468f13ba045d84bceedae",
+    "revision": "770dbe8c683a7869828a2dbe2321d7d3",
     "url": "/vmrents-website/index.html"
   },
   {
-    "revision": "6118d32c3041437eceb9",
+    "revision": "24bd7080bf39865dc538",
     "url": "/vmrents-website/static/css/main.16867338.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vmrents-website/static/js/2.d0b0dac6.chunk.js"
   },
   {
-    "revision": "6118d32c3041437eceb9",
-    "url": "/vmrents-website/static/js/main.7c303f73.chunk.js"
+    "revision": "24bd7080bf39865dc538",
+    "url": "/vmrents-website/static/js/main.8ff683ef.chunk.js"
   },
   {
     "revision": "c3f1d09cdeb9fd13002a",
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vmrents-website/static/media/exampleVehicle3.5aa017b7.png"
   },
   {
-    "revision": "62bd27a1a0612bca6aa8bc5d64412c30",
-    "url": "/vmrents-website/static/media/header_car2.62bd27a1.png"
+    "revision": "02e5e5e55500a57fae116ccb60ac77e3",
+    "url": "/vmrents-website/static/media/header_car3.02e5e5e5.png"
   },
   {
     "revision": "60f121dd64c6e9ca96b1e91616b9050e",
