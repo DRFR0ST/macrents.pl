@@ -3,7 +3,7 @@ import { Button, Icon, Typography, withStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import cx from 'classnames';
-import header_car from 'images/header_car2.png';
+import header_car from 'images/header_car3.png';
 import translations from 'translations/header.trans.js';
 import { useLittera } from 'react-littera';
 
@@ -30,6 +30,8 @@ const styles = (theme) => ({
     userDrag: 'none',
     userSelect: 'none',
     zIndex: 3,
+    maxHeight: '560px',
+    margin: '100px 0 auto 10%',
   },
   left: {
     '& div': {
