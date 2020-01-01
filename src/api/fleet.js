@@ -1,14 +1,14 @@
-import ExampleVehicle1 from 'images/fleet/exampleVehicle3.png';
-import ExampleVehicle10 from 'images/fleet/mercedes-benz-e-class-saloon-se-black.png';
-import ExampleVehicle11 from 'images/fleet/audi-q7-blue.png';
-import ExampleVehicle2 from 'images/fleet/toppng.com-mercedes-a-class-side-view-1834x633.png';
-import ExampleVehicle3 from 'images/fleet/skoda-octavia-combi-15-tsi-110-kw-150-km-7-biegowa-automatyczna-dsg-bez-cappuccino-metalizowany-tmbjr7ne9k0119210-exteriorside.png';
-import ExampleVehicle4 from 'images/fleet/skoda-octavia-15-tsi-110-kw-150-km-6-biegowa-manualna-szary-quartz-metalizowany-tmbar7ne1k0110601-exteriorside_1.png';
-import ExampleVehicle5 from 'images/fleet/hiclipart.com.png';
-import ExampleVehicle6 from 'images/fleet/878veh.0435i.18.Jet_Black.webp';
-import ExampleVehicle7 from 'images/fleet/2018BMC780004_1280_03.webp';
-import ExampleVehicle8 from 'images/fleet/2018-bmw-5-series-530e-xdrive_1.png';
-import ExampleVehicle9 from 'images/fleet/mercedes-benz-e-class-saloon-amg-line-selenite-grey.png';
+import ExampleVehicle1 from 'images/newfleet/skoda_rapid.png';
+import ExampleVehicle2 from 'images/newfleet/mercedes_a_grey.png';
+import ExampleVehicle3 from 'images/newfleet/skoda_oktavia_sedan.png';
+import ExampleVehicle4 from 'images/newfleet/skoda_octavia_combi.png';
+import ExampleVehicle5 from 'images/newfleet/jaguar.png';
+import ExampleVehicle6 from 'images/newfleet/bmg_4_black.png';
+import ExampleVehicle7 from 'images/newfleet/bmw_4_white.png';
+import ExampleVehicle8 from 'images/newfleet/bmw_5.png';
+import ExampleVehicle9 from 'images/newfleet/mercedes_e_black.png';
+import ExampleVehicle10 from 'images/newfleet/mercedes_e_amg_grey.png';
+import ExampleVehicle11 from 'images/newfleet/audi_q7.png';
 
 export default [
   {
@@ -82,7 +82,7 @@ export default [
       ],
       pl_PL: ['Czujniki parkowania, zestaw parkowania, SmartLink'],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle3,
     lowestPrice: 119,
     name: 'Skoda Octavia',
@@ -112,7 +112,7 @@ export default [
         'Czujniki parkowania, podgrzewane fotele, zestaw głosnomówiący, SmartLink',
       ],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle4,
     lowestPrice: 129,
     color: 'white',
@@ -142,7 +142,7 @@ export default [
         'Czujniki parkowania, kamera cofania, podgrzewane fotele, zestaw głośnomówiący, SmartLink',
       ],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle5,
     color: 'grey',
     type: 'Sedan',
@@ -202,7 +202,7 @@ export default [
         'Czujniki parkowania, kamera cofania, podgrzewane fotele, zestaw głosnomówiący, SmartLink',
       ],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle7,
     lowestPrice: 279,
     name: 'BMW 4 GranCoupe',
@@ -232,7 +232,7 @@ export default [
         'Czujniki parkowania, kamera cofania 360°, podgrzewane fotele, zestaw głośnomówiący, SmartLink',
       ],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle8,
     lowestPrice: 279,
     name: 'BMW Seria 5',
@@ -322,7 +322,7 @@ export default [
         'Pakiet S-line, nagłośnienie BOSE, czujniki parkowania, kamera cofania, tempomat aktywny, podgrzewane fotele, zestaw głosnomówiący, SmartLink',
       ],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle11,
     lowestPrice: 429,
     name: 'Audi Q7 S-LINE',

@@ -8,6 +8,7 @@ import NavDrawer from '../components/common/NavDrawer';
 import Navbar from 'components/common/Navbar';
 import { HashRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
+import LoadingPage from '../components/pages/Loader.js';
 import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -53,6 +54,7 @@ function App() {
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <MuiThemeProvider theme={theme}>
         <LitteraProvider language={language} setLanguage={setLanguage}>
+          <LoadingPage />
           <Router>
             <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
             <Routes />

@@ -64,4 +64,9 @@ export default {
     en_US: 'Yes',
     pl_PL: 'Tak',
   },
+  aDay: {
+    de_DE: 'PLN/Tag',
+    en_US: 'PLN/day',
+    pl_PL: 'zł/dzień',
+  },
 };

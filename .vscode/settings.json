@@ -19,24 +19,11 @@
   },
   // eslint extension options
   "eslint.enable": true,
-  "eslint.autoFixOnSave": true,
   "eslint.validate": [
-    {
-      "language": "javascript",
-      "autoFix": true
-    },
-    {
-      "language": "javascriptreact",
-      "autoFix": true
-    },
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true
-    }
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
   ],
   // prettier extension setting
   "[javascript]": {
@@ -57,5 +44,8 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "editor.formatOnSave": true,
-  "prettier.ignorePath": ".prettierignore"
+  "prettier.ignorePath": ".prettierignore",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

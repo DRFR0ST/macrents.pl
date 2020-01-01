@@ -94,6 +94,7 @@ const styles = {
   },
   controlsText: {
     '& h1': {
+      margin: 0,
       minWidth: '50%',
     },
   },
@@ -117,20 +118,20 @@ const styles = {
     animationDuration: '455ms',
     animationName: '$vanish',
     animationTimingFunction: 'ease-in-out',
-    height: '400px',
-    maxHeight: '400px',
+    maxHeight: '275px',
     position: 'relative',
-    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
   },
   vehicleBox: {
-    height: '100%',
-    maxHeight: '400px',
-    minHeight: '400px',
+    maxHeight: '275px',
+    minHeight: '275px',
     position: 'relative',
-    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
   },
   vehicleHidden: {
-    height: '400px',
+    height: '275px',
     minWidth: '80vw',
     opacity: 0,
     position: 'relative',
@@ -177,8 +178,12 @@ const FleetSelector = ({ classes }) => {
               </Icon>
               <div className={classes.controlsText}>
                 <h1>{fleet[active].name}</h1>
+                <Typography style={{ opacity: 0.85 }}>
+                  {fleet[active].type}
+                </Typography>
                 <Typography style={{ opacity: 0.6 }} paragraph>
-                  {translated.from} {fleet[active].lowestPrice} PLN/h
+                  {translated.from} {fleet[active].lowestPrice}{' '}
+                  {translated.aDay}
                 </Typography>
               </div>
               <Icon className={classes.arrows} onClick={handleNext}>

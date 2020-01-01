@@ -10,8 +10,8 @@ import { useLittera } from 'react-littera';
 const styles = (theme) => ({
   '@media (max-width: 700px)': {
     left: {
-      maxWidth: '100%',
-      width: '100vw',
+      maxWidth: '100% !important',
+      width: '100vw !important',
     },
     right: {
       display: 'none',
