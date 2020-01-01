@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LinearProgress, Portal, makeStyles } from '@material-ui/core';
 import logo from 'images/logo.png';
 
@@ -46,7 +46,7 @@ const LoadingPage = ({ time = 5000 }) => {
     }, 200);
   };
 
-  useEffect(() => setTimeout(handleTimeout, time), []);
+  useEffect(() => setTimeout(handleTimeout, time), [time]);
 
   if (!shown) return null;
 
