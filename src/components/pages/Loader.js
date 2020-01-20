@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     position: 'relative',
-    maxWidth: 'auto',
     maxHeight: '200px',
     maxWidth: '90%',
     marginLeft: '50%',
