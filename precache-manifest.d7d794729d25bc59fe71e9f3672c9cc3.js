@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "db99b3c2471251b0a0f9c8c74a7c73e8",
+    "revision": "ef6cc172badfe62a732d5218b49897d1",
     "url": "/vmrents-website/index.html"
   },
   {
-    "revision": "11a621cc4094a972e93b",
+    "revision": "e4b8f04e0b68044be0f8",
     "url": "/vmrents-website/static/css/main.16867338.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vmrents-website/static/js/2.8e649eb0.chunk.js"
   },
   {
-    "revision": "11a621cc4094a972e93b",
-    "url": "/vmrents-website/static/js/main.c7d22792.chunk.js"
+    "revision": "e4b8f04e0b68044be0f8",
+    "url": "/vmrents-website/static/js/main.a5e3d80d.chunk.js"
   },
   {
     "revision": "c3f1d09cdeb9fd13002a",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vmrents-website/static/media/jaguar.87b7ad8f.png"
   },
   {
-    "revision": "c1bc2118c048e0561a9edcad176ea815",
-    "url": "/vmrents-website/static/media/logo.c1bc2118.png"
+    "revision": "b439106b06a9937320225d716bd1e5bd",
+    "url": "/vmrents-website/static/media/logo.b439106b.png"
   },
   {
     "revision": "21c1572f83c800d778afb9f657f8b102",
