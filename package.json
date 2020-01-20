@@ -2,7 +2,7 @@
   "name": "vmrents-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://drfr0st.github.io/vmrents-website",
+  "homepage": "https://drfr0st.github.io/macrents.pl",
   "dependencies": {
     "@date-io/moment": "^1.3.11",
     "@material-ui/core": "^4.0.0",
