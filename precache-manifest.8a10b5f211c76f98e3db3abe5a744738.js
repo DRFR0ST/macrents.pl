@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9818b501523e5d591c9668d4acb6c8ac",
+    "revision": "6d61bd6e3aea81de5f3f29b750010809",
     "url": "/macrents.pl/index.html"
   },
   {
-    "revision": "aec953e6cfea11f73ef6",
+    "revision": "70593eb8afb9c1df29a8",
     "url": "/macrents.pl/static/css/main.16867338.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/macrents.pl/static/js/2.8e649eb0.chunk.js"
   },
   {
-    "revision": "aec953e6cfea11f73ef6",
-    "url": "/macrents.pl/static/js/main.ae2c2ae1.chunk.js"
+    "revision": "70593eb8afb9c1df29a8",
+    "url": "/macrents.pl/static/js/main.881eb4d4.chunk.js"
   },
   {
     "revision": "7eacdae345c51d9f60dd",
