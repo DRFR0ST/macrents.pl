@@ -108,14 +108,7 @@ const Header = ({ classes }) => {
       <div className={cx(classes.content, classes.left)}>
         <div>
           <Typography variant="h3">{translated.title}</Typography>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            libero purus, volutpat et malesuada sed, sodales vitae ligula. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Nunc blandit metus sed nibh congue, a ultrices
-            erat ultrices. Donec feugiat erat in semper auctor. In hac habitasse
-            platea dictumst.
-          </Typography>
+          <Typography>{translated.description}</Typography>
           <br />
           <Button
             component={Link}
