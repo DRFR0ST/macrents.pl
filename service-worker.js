@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/macrents.pl/precache-manifest.8a10b5f211c76f98e3db3abe5a744738.js"
+  "/macrents.pl/precache-manifest.a6fc9736f2167a540c518a9bbbaa6047.js"
 );
 
 self.addEventListener('message', (event) => {
