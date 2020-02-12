@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import translations from 'translations/pricing.trans.js';
+import { useHistory } from 'react-router-dom';
 import { useLittera } from 'react-littera';
 
 const styles = (theme) => ({
@@ -79,8 +80,9 @@ const styles = (theme) => ({
   },
 });
 
-function createData(name, hourly, daily, monthly, yearly) {
+function createData(id, name, hourly, daily, monthly, yearly) {
   return {
+    id,
     daily,
     hourly,
     monthly,
@@ -95,26 +97,32 @@ function createCategory(name) {
 
 const rows = [
   createCategory('Klasa B'),
-  createData('Skoda Rapid (sedan)', 119, 109, 99, 89),
+  createData(0, 'Skoda Rapid (sedan)', 119, 109, 99, 89),
   createCategory('Klasa C'),
-  createData('Mercedes A Klasa (hatchback)', 139, 129, 119, 109),
+  createData(1, 'Mercedes A Klasa (hatchback)', 139, 129, 119, 109),
   createCategory('Klasa D'),
-  createData('Skoda Octavia (sedan)', 159, 149, 129, 119),
-  createData('Skoda Octavia (kombi)', 169, 159, 139, 129),
+  createData(2, 'Skoda Octavia (sedan)', 159, 149, 129, 119),
+  createData(3, 'Skoda Octavia (kombi)', 169, 159, 139, 129),
   createCategory('Klasa D+'),
-  createData('Jaguar XE (sedan)', '249', 239, 229, 219),
-  createData('BMW 4 GranCoupe (sedan)', 309, 299, 289, 279),
-  createData('BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
+  createData(4, 'Jaguar XE (sedan)', '249', 239, 229, 219),
+  createData(5, 'BMW 4 GranCoupe (sedan)', 309, 299, 289, 279),
+  createData(6, 'BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
   createCategory('Klasa E'),
-  createData('BMW Seria 5 (sedan)', 319, 309, 299, 279),
-  createData('Mercedes E Klasa AMG (sedan)', 309, 299, 289, 269),
-  createData('Mercedes E Klasa (sedan)', 299, 289, 279, 269),
+  createData(7, 'BMW Seria 5 (sedan)', 319, 309, 299, 279),
+  createData(8, 'Mercedes E Klasa AMG (sedan)', 309, 299, 289, 269),
+  createData(9, 'Mercedes E Klasa (sedan)', 299, 289, 279, 269),
   createCategory('Klasa S'),
-  createData('Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
+  createData(10, 'Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
 ];
 
 const Pricing = ({ classes }) => {
   const [translated] = useLittera(translations);
+
+  const history = useHistory();
+
+  const handleVehicleClick = (id) => () => {
+    history.push(`/vehicle/${id}`);
+  };
 
   return (
     <React.Fragment>
@@ -131,7 +139,7 @@ const Pricing = ({ classes }) => {
       <div className={classes.root}>
         <Typography variant="h3">{translated.pricing}</Typography>
         <br />
-        <Typography paragraphy className={classes.slogan}>
+        <Typography paragraph className={classes.slogan}>
           {translated.slogan}
         </Typography>
         <br />
@@ -141,8 +149,9 @@ const Pricing = ({ classes }) => {
           <Table className={classes.table} aria-label="simple table">
             <caption>
               <span className={classes.caption}>
-                * Wyżej wymienione ceny są cenami netto
+                * {translated.nettoPrice}
                 <br />* {translated.prefilled}
+                <br />* {translated.dayPrice}
               </span>
             </caption>
             <TableHead>
@@ -166,7 +175,12 @@ const Pricing = ({ classes }) => {
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <TableRow hover key={row.name}>
+                <TableRow
+                  onClick={handleVehicleClick(row.id)}
+                  style={{ cursor: !row.cat ? 'pointer' : 'default' }}
+                  hover={!row.cat}
+                  key={row.name}
+                >
                   {row.cat && (
                     <React.Fragment>
                       <TableCell align="center" style={{ fontWeight: 'bold' }}>

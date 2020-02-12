@@ -49,10 +49,17 @@ export default function Payment({ open = false, handleClose }) {
   const classes = useStyle();
 
   const [selected, setSelected] = useState(-1);
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [dateFrom, setDateFrom] = React.useState(new Date());
+  const [dateTo, setDateTo] = React.useState(new Date());
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateFromChange = (date) => {
+    setDateFrom(date);
+    if (dateTo < date) setDateTo(date);
+  };
+  const handleDateToChange = (date) => {
+    setDateTo(date);
+
+    if (dateFrom > date) setDateFrom(date);
   };
   const handleSelection = (i) => setSelected((v) => (v === i ? -1 : i));
 
@@ -123,10 +130,10 @@ export default function Payment({ open = false, handleClose }) {
             <KeyboardDatePicker
               margin="normal"
               id="date-picker-dialog"
-              label="Date picker dialog"
+              label="Data od"
               format="DD.MM.YYYY"
-              value={selectedDate}
-              onChange={handleDateChange}
+              value={dateFrom}
+              onChange={handleDateFromChange}
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
@@ -135,10 +142,10 @@ export default function Payment({ open = false, handleClose }) {
             <KeyboardDatePicker
               margin="normal"
               id="date-picker-dialog"
-              label="Date picker dialog"
+              label="Data do"
               format="DD.MM.YYYY"
-              value={selectedDate}
-              onChange={handleDateChange}
+              value={dateTo}
+              onChange={handleDateToChange}
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}

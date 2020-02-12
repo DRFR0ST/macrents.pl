@@ -1,6 +1,14 @@
-import { Button, withStyles } from '@material-ui/core';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  withStyles,
+} from '@material-ui/core';
 
-import React from 'react';
+import React, { useState } from 'react';
 import translations from 'translations/special.trans.js';
 import { useLittera } from 'react-littera';
 
@@ -98,63 +106,106 @@ const styles = (theme) => ({
 
 const Special = ({ classes }) => {
   const [translated] = useLittera(translations);
+  const [dialog, setDialog] = useState(null);
+
+  const specials = [
+    {
+      description:
+        'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
+      image:
+        'https://images.unsplash.com/photo-1551952237-954a0e68786c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+      title: translated.slogan1,
+    },
+    {
+      description:
+        'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
+      image: 'https://source.unsplash.com/ZhEnFcHO0es',
+      title: translated.slogan2,
+    },
+    {
+      description:
+        'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
+      image: 'https://source.unsplash.com/cTmL8HxP8NQ/',
+      title: translated.slogan3,
+    },
+  ];
+
+  const handleDialogOpen = (spec = null) => () => {
+    setDialog(spec);
+  };
+
+  const handleDialogClose = () => {
+    setDialog(null);
+  };
 
   return (
     <div>
-      <div className={classes.rootRight}>
-        <div className={classes.sloganRight}>
-          <div>
-            <h2>{translated.slogan1}</h2>
-            <Button size="large" variant="contained" color="primary">
-              {translated.learnMore}
-            </Button>
+      {specials.map((spec, i) => {
+        const isRight = i % 2 === 0;
+        const side = isRight ? 'Right' : 'Left';
+
+        const cls = {
+          image: classes[`image${side}`],
+          root: classes[`root${side}`],
+          shadow: classes[`shadow${side}`],
+          slogan: classes[`slogan${side}`],
+        };
+
+        const img = (
+          <React.Fragment>
+            <div className={cls.shadow} />
+            <img src={spec.image} className={cls.image} />
+          </React.Fragment>
+        );
+
+        return (
+          <div className={cls.root} key={JSON.stringify(spec)}>
+            {!isRight && img}
+            <div className={cls.slogan}>
+              <div>
+                <h2>{spec.title}</h2>
+                <Button
+                  size="large"
+                  variant="contained"
+                  color="primary"
+                  onClick={handleDialogOpen(spec)}
+                >
+                  {translated.learnMore}
+                </Button>
+              </div>
+            </div>
+            {isRight && img}
           </div>
-        </div>
-        <div className={classes.shadowRight} />
-        <img
-          src="https://images.unsplash.com/photo-1551952237-954a0e68786c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
-          className={classes.imageRight}
-          alt="rightpic"
-        />
-      </div>
-      <div className={classes.rootLeft}>
-        <div className={classes.shadowLeft} />
-        <img
-          src="https://source.unsplash.com/ZhEnFcHO0es"
-          className={classes.imageLeft}
-          alt="centerpic"
-        />
-        <div className={classes.sloganLeft}>
-          <div>
-            <h2>{translated.slogan2}</h2>
-            <Button
-              size="large"
-              style={{ float: 'right' }}
-              variant="contained"
-              color="primary"
-            >
-              {translated.learnMore}
-            </Button>
-          </div>
-        </div>
-      </div>
-      <div className={classes.rootRight}>
-        <div className={classes.sloganRight}>
-          <div>
-            <h2>{translated.slogan3}</h2>
-            <Button size="large" variant="contained" color="primary">
-              {translated.learnMore}
-            </Button>
-          </div>
-        </div>
-        <div className={classes.shadowRight} />
-        <img
-          src="https://source.unsplash.com/cTmL8HxP8NQ/"
-          className={classes.imageRight2}
-          alt="rightpic2"
-        />
-      </div>
+        );
+      })}
+
+      <SpecialDialog spec={dialog} handleClose={handleDialogClose} />
     </div>
+  );
+};
+
+const SpecialDialog = ({ spec = null, handleClose }) => {
+  if (spec === null) return null;
+
+  return (
+    <Dialog
+      open
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">{spec.title}</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          {spec.description}
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose} color="primary">
+          Zamknij
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

@@ -47,9 +47,6 @@ function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [language, setLanguage] = useState('pl_PL');
 
-  /*const basename =
-    process.env.REACT_APP_MODE === 'dev' ? '/' : '/vmrents-website/'*/
-
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <MuiThemeProvider theme={theme}>

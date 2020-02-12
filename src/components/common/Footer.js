@@ -55,7 +55,7 @@ const Footer = ({ classes }) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Typography paragraph>Copyright (c) 2019, VMRents.pl</Typography>
+        <Typography paragraph>Copyright (c) 2020, MACRents.pl</Typography>
         <div className={classes.links}>
           <Typography paragraph>{translated.privacyPolicy}</Typography>
         </div>

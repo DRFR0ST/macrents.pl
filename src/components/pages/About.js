@@ -98,7 +98,7 @@ const About = ({ classes }) => {
         <div className={classes.plusChunk2} />
         <Typography variant="h3">{translated.about}</Typography>
         <br />
-        <Typography paragraphy>
+        <Typography paragraph>
           Esse incididunt qui consectetur cupidatat ullamco anim exercitation
           ullamco velit.
         </Typography>

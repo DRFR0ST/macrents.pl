@@ -1,4 +1,14 @@
 export default {
+  dayPrice: {
+    de_DE: 'Preis pro Tag',
+    en_US: 'Price per day',
+    pl_PL: 'Cena za dobe',
+  },
+  nettoPrice: {
+    de_DE: 'Die oben genannten Preise sind Nettopreise',
+    en_US: 'The above mentioned prices are net prices',
+    pl_PL: 'Wyżej wymienione ceny są cenami netto',
+  },
   prefilled: {
     de_DE: 'Jedes Fahrzeug wurde vor der Anmietung vollgetankt und gesaubert.',
     en_US: 'Each vehicle was refueled and cleaned before renting.',

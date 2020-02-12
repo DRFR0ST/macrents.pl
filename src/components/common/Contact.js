@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import translations from 'translations/contact.trans.js';
 import { useLittera } from 'react-littera';
+import { SocialIcon } from 'react-social-icons';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -125,8 +126,8 @@ function Contact() {
           <iframe
             className={classes.map}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.446387886426!2d16.896681115802938!3d52.39858557979134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470444d3a0cdecc9%3A0x4494a6f6ec067c76!2sStanis%C5%82awa%20Wyspia%C5%84skiego%2012%2C%2060-750%20Pozna%C5%84!5e0!3m2!1sen!2spl!4v1574470145873!5m2!1sen!2spl"
-            frameborder="0"
-            allowfullscreen=""
+            frameBorder={0}
+            allowFullScreen={true}
             title="loc_map"
           ></iframe>
           <div className={classes.contactContainer}>
@@ -135,7 +136,7 @@ function Contact() {
               <Icon>phone</Icon> <p>+48 600 779 749</p>
             </div>
             <div className={classes.flexItem}>
-              <Icon>mail</Icon> <p>info@vmrents.pl</p>
+              <Icon>mail</Icon> <p>info@macrents.pl</p>
             </div>
             <div className={classes.flexItem}>
               <Icon>map</Icon>
@@ -144,6 +145,22 @@ function Contact() {
                 <br />
                 60-750 Poznań
               </p>
+            </div>
+
+            <div
+              style={{ display: 'flex', alignItems: 'center', marginTop: 20 }}
+            >
+              <SocialIcon
+                style={{ marginRight: 12 }}
+                bgColor="#a48453"
+                fgColor="#fff"
+                url="https://www.facebook.com/macrents.car/"
+              />
+              <SocialIcon
+                bgColor="#a48453"
+                fgColor="#fff"
+                url="https://www.instagram.com/macrents.car/"
+              />
             </div>
           </div>
         </div>
@@ -197,7 +214,8 @@ function Contact() {
             size="large"
             style={{ float: 'right', marginTop: '1rem' }}
           >
-            <Icon>send</Icon> {translated.submit}
+            <Icon style={{ marginRight: 8, fontSize: 16 }}>send</Icon>{' '}
+            {translated.submit}
           </Button>
         </div>
       </div>

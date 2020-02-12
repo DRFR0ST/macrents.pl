@@ -89,6 +89,7 @@ const NavDrawer = ({ toggled, closeDrawer, classes, history }) => {
         <List>
           {tabs.map((tab) => (
             <ListItem
+              key={JSON.stringify(tab)}
               button
               onClick={() => {
                 closeDrawer();

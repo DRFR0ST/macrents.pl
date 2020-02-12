@@ -4,7 +4,8 @@ import Header from '../common/Header';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Special from '../common/Special';
-import { withStyles } from '@material-ui/core';
+import { Typography, withStyles } from '@material-ui/core';
+import FleetSelector from '../common/FleetSelector';
 
 const styles = {
   root: {},
@@ -14,6 +15,15 @@ const Home = ({ children, classes }) => {
   return (
     <div className={classes.root}>
       <Header />
+      <Typography
+        style={{ fontWeight: 'bold' }}
+        variant="h3"
+        align="center"
+        color="primary"
+      >
+        Okazy floty
+      </Typography>
+      <FleetSelector maxItems={3} />
       <div className={classes.content}>
         <Special />
       </div>

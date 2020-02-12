@@ -1,5 +1,5 @@
 {
-  "name": "vmrents-website",
+  "name": "macrents-website",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://macrents.pl",
@@ -16,7 +16,8 @@
     "react-littera": "^1.1.3",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-social-icons": "^4.1.0"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1"

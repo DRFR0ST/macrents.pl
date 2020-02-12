@@ -17,7 +17,7 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import englishFlag from 'images/flags/US.png';
 import germanFlag from 'images/flags/DE.png';
-import logo from 'images/logo.png';
+import logo from 'images/logo.svg';
 import polishFlag from 'images/flags/PL.png';
 import translations from 'translations/nav.trans.js';
 import { useLittera } from 'react-littera';
@@ -185,6 +185,7 @@ const Navbar = ({
 
               return (
                 <Button
+                  key={JSON.stringify(e)}
                   color="primary"
                   variant={activeTab === i ? 'outlined' : 'text'}
                   onClick={handleClick}

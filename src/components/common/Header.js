@@ -49,7 +49,7 @@ const styles = (theme) => ({
       '& p': {
         fontWeight: 'light',
         opacity: 0.8,
-        textTransform: 'lowercase',
+        //textTransform: 'lowercase',
       },
       maxWidth: '70%',
       padding: '1.5rem',

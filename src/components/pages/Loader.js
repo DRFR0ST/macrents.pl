@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoadingPage = ({ time = 5000 }) => {
+const LoadingPage = ({ time = 3000 }) => {
   const [shown, setShown] = useState(true);
   const [hidding, setHidding] = useState(false);
   const classes = useStyles();
@@ -46,7 +46,9 @@ const LoadingPage = ({ time = 5000 }) => {
     }, 200);
   };
 
-  useEffect(() => setTimeout(handleTimeout, time), [time]);
+  useEffect(() => {
+    setTimeout(handleTimeout, time);
+  }, [time]);
 
   if (!shown) return null;
 

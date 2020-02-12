@@ -9,7 +9,7 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Payment from './Payment.js';
 import fleet from '../../api/fleet.js';
@@ -139,7 +139,7 @@ const styles = {
   },
 };
 
-const FleetSelector = ({ classes }) => {
+const FleetSelector = ({ classes, maxItems = 0 }) => {
   const history = useHistory();
   const [active, setActive] = useState(0);
   const [specsOpen, setSpecsOpen] = useState(false);
@@ -149,10 +149,20 @@ const FleetSelector = ({ classes }) => {
   const closeRent = () => setRentOpen(false);
   const openRent = () => setRentOpen(true);
 
+  const _flt = useMemo(() => {
+    let f = [...fleet];
+    if (maxItems > 0) {
+      f = f.reverse();
+      f.length = maxItems;
+    }
+
+    return f;
+  }, []);
+
   const handleNext = () =>
-    setActive(fleet.length - 1 === active ? 0 : active + 1);
+    setActive(_flt.length - 1 === active ? 0 : active + 1);
   const handlePrev = () =>
-    setActive(0 === active ? fleet.length - 1 : active - 1);
+    setActive(0 === active ? _flt.length - 1 : active - 1);
 
   const closeSpecs = () => setSpecsOpen(false);
   const openSpecs = () => history.push('/vehicle/' + active);
@@ -162,8 +172,9 @@ const FleetSelector = ({ classes }) => {
       <div className={classes.root}>
         <div>
           <div className={classes.container}>
-            {fleet.map((e, i) => (
+            {_flt.map((e, i) => (
               <VehicleItem
+                key={JSON.stringify(e)}
                 className={classes.vehicle}
                 classNameHidden={classes.vehicleHidden}
                 vehicle={e}
@@ -177,13 +188,12 @@ const FleetSelector = ({ classes }) => {
                 keyboard_arrow_left
               </Icon>
               <div className={classes.controlsText}>
-                <h1>{fleet[active].name}</h1>
+                <h1>{_flt[active].name}</h1>
                 <Typography style={{ opacity: 0.85 }}>
-                  {fleet[active].type}
+                  {_flt[active].type}
                 </Typography>
                 <Typography style={{ opacity: 0.6 }} paragraph>
-                  {translated.from} {fleet[active].lowestPrice}{' '}
-                  {translated.aDay}
+                  {translated.from} {_flt[active].lowestPrice} {translated.aDay}
                 </Typography>
               </div>
               <Icon className={classes.arrows} onClick={handleNext}>
@@ -192,9 +202,9 @@ const FleetSelector = ({ classes }) => {
             </Hidden>
             <Hidden mdUp>
               <div className={classes.controlsText}>
-                <h1>{fleet[active].name}</h1>
+                <h1>{_flt[active].name}</h1>
                 <Typography style={{ opacity: 0.6 }} paragraph>
-                  {translated.from} {fleet[active].lowestPrice}PLN/h
+                  {translated.from} {_flt[active].lowestPrice}PLN/h
                 </Typography>
               </div>
               <div>
