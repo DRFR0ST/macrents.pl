@@ -154,7 +154,11 @@ const Special = ({ classes }) => {
         const img = (
           <React.Fragment>
             <div className={cls.shadow} />
-            <img src={spec.image} className={cls.image} />
+            <img
+              src={spec.image}
+              className={cls.image}
+              alt={`${spec.title} background`}
+            />
           </React.Fragment>
         );
 
