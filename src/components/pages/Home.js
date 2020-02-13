@@ -4,7 +4,7 @@ import Header from '../common/Header';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Special from '../common/Special';
-import { Typography, withStyles } from '@material-ui/core';
+import { Icon, Typography, withStyles } from '@material-ui/core';
 import FleetSelector from '../common/FleetSelector';
 
 const styles = {
@@ -12,18 +12,39 @@ const styles = {
 };
 
 const Home = ({ children, classes }) => {
+  // TODO: FLOTY!!
   return (
     <div className={classes.root}>
       <Header />
-      <Typography
-        style={{ fontWeight: 'bold' }}
-        variant="h3"
-        align="center"
-        color="primary"
+      {/* 
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          maxHeight: '100vh',
+          maxWidth: '90%',
+          overflow: 'hidden',
+        }}
       >
-        Okazy floty
-      </Typography>
-      <FleetSelector maxItems={3} />
+        <div style={{ maxWidth: '45%' }}>
+          <Typography
+            style={{ fontWeight: 'bold' }}
+            variant="h3"
+            align="center"
+            color="primary"
+          >
+            Okazy floty
+          </Typography>
+          <FleetSelector maxItems={3} />
+        </div>
+        <div style={{ maxWidth: '45%' }}>
+          <Icon
+            name="percentage"
+            style={{ fontSize: '45vw' }}
+            color="primary"
+          />
+        </div>
+      </div> */}
       <div className={classes.content}>
         <Special />
       </div>

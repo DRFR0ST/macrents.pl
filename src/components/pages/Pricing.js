@@ -102,17 +102,14 @@ const rows = [
   createData(1, 'Mercedes A Klasa (hatchback)', 139, 129, 119, 109),
   createCategory('Klasa D'),
   createData(2, 'Skoda Octavia (sedan)', 159, 149, 129, 119),
-  createData(3, 'Skoda Octavia (kombi)', 169, 159, 139, 129),
   createCategory('Klasa D+'),
-  createData(4, 'Jaguar XE (sedan)', '249', 239, 229, 219),
-  createData(5, 'BMW 4 GranCoupe (sedan)', 309, 299, 289, 279),
-  createData(6, 'BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
+  createData(3, 'BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
   createCategory('Klasa E'),
-  createData(7, 'BMW Seria 5 (sedan)', 319, 309, 299, 279),
-  createData(8, 'Mercedes E Klasa AMG (sedan)', 309, 299, 289, 269),
-  createData(9, 'Mercedes E Klasa (sedan)', 299, 289, 279, 269),
+  createData(4, 'BMW Seria 5 (sedan)', 319, 309, 299, 279),
+  createData(5, 'Mercedes E Klasa (sedan)', 299, 289, 279, 269),
+  createData(6, 'Mercedes E Klasa (sedan)', 309, 299, 289, 279),
   createCategory('Klasa S'),
-  createData(10, 'Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
+  createData(7, 'Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
 ];
 
 const Pricing = ({ classes }) => {
@@ -176,7 +173,7 @@ const Pricing = ({ classes }) => {
             <TableBody>
               {rows.map((row) => (
                 <TableRow
-                  onClick={handleVehicleClick(row.id)}
+                  onClick={!row.cat ? handleVehicleClick(row.id) : () => {}}
                   style={{ cursor: !row.cat ? 'pointer' : 'default' }}
                   hover={!row.cat}
                   key={row.name}

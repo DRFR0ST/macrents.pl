@@ -12,6 +12,9 @@ import React, { useState } from 'react';
 import translations from 'translations/special.trans.js';
 import { useLittera } from 'react-littera';
 
+import special2Image from 'images/volkswagen-passat-alltrack-b8-2016-06.png';
+import special1Image from 'images/special_background01.jpg';
+
 const styles = (theme) => ({
   imageLeft: {
     height: 'auto',
@@ -49,6 +52,7 @@ const styles = (theme) => ({
     overflow: 'hidden',
     position: 'relative',
     width: '100vw',
+    border: '1px solid #121212',
   },
   rootRight: {
     alignItems: 'center',
@@ -59,6 +63,7 @@ const styles = (theme) => ({
     overflow: 'hidden',
     position: 'relative',
     width: '100vw',
+    border: '1px solid #121212',
   },
   shadowLeft: {
     background: 'linear-gradient(to bottom left, #121212d9 35%, transparent)',
@@ -112,21 +117,30 @@ const Special = ({ classes }) => {
     {
       description:
         'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
-      image:
-        'https://images.unsplash.com/photo-1551952237-954a0e68786c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+      image: special1Image,
       title: translated.slogan1,
+      altImageStyle: {
+        maxWidth: '100%',
+      },
     },
     {
       description:
         'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
-      image: 'https://source.unsplash.com/ZhEnFcHO0es',
+      image: special2Image,
       title: translated.slogan2,
+      altImageStyle: {
+        marginTop: 60,
+      },
     },
     {
       description:
         'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
-      image: 'https://source.unsplash.com/cTmL8HxP8NQ/',
+      image:
+        'https://img2.goodfon.com/wallpaper/nbig/2/ad/mercedes-znachok-buket.jpg',
       title: translated.slogan3,
+      altImageStyle: {
+        maxWidth: '100%',
+      },
     },
   ];
 
@@ -155,6 +169,7 @@ const Special = ({ classes }) => {
           <React.Fragment>
             <div className={cls.shadow} />
             <img
+              style={spec.altImageStyle}
               src={spec.image}
               className={cls.image}
               alt={`${spec.title} background`}

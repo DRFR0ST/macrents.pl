@@ -67,6 +67,7 @@ const styles = (theme) => ({
       padding: '0 5%',
       width: '90%',
     },
+    maxWidth: '60vw',
     color: '#fff !important',
     height: 'auto',
     left: '15%',

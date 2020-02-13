@@ -9,6 +9,7 @@ import Home from 'components/pages/Home';
 import Pricing from 'components/pages/Pricing';
 import React from 'react';
 import { withStyles } from '@material-ui/core';
+import Documents from '../components/pages/Documents';
 
 const styles = {
   root: {},
@@ -22,6 +23,7 @@ const Routes = ({ classes }) => {
         <Route exact path="/about" component={About} />
         <Route exact path="/fleet" component={Fleet} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/documents" component={Documents} />
         <Route exact path="/pricing" component={Pricing} />
         <Route path="/vehicle/:id" component={CarPreview} />
         <Route component={ErrorPage} />

@@ -95,6 +95,9 @@ const tabs = [
     key: 'pricing',
   },
   {
+    key: 'documents',
+  },
+  {
     key: 'contact',
   },
 ];
@@ -170,12 +173,24 @@ const Navbar = ({
             </IconButton>
           </div>
           <div className={classes.rightSmall}>
-            <img className={classes.logoSmall} src={logo} alt="Logo" />
+            <img
+              onClick={() => history.push('/')}
+              className={classes.logoSmall}
+              src={logo}
+              style={{ cursor: 'pointer' }}
+              alt="Logo"
+            />
           </div>
         </Hidden>
         <Hidden smDown>
           <div className={classes.left}>
-            <img className={classes.logo} src={logo} alt="Logo" />
+            <img
+              onClick={() => history.push('/')}
+              className={classes.logo}
+              src={logo}
+              style={{ cursor: 'pointer' }}
+              alt="Logo"
+            />
           </div>
           <div className={classes.right}>
             {tabs.map((e, i) => {

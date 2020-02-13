@@ -29,4 +29,9 @@ export default {
     en_US: 'Pricing',
     pl_PL: 'Cennik',
   },
+  documents: {
+    de_DE: 'Unterlagen',
+    en_US: 'Documents',
+    pl_PL: 'Dokumenty',
+  },
 };

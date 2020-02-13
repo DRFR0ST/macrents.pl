@@ -120,7 +120,10 @@ function CarPreview() {
         {/* <img src={vehicle.current.thumbnail} alt={vehicle.current.name} /> */}
         <div
           className={classes.thumbnailEl}
-          style={{ 'background-image': `url(${vehicle.current.thumbnail})` }}
+          style={{
+            'background-image': `url(${vehicle.current.thumbnail})`,
+            ...vehicle.current.thumbnailStyle,
+          }}
         ></div>
       </div>
       <div className={classes.contentContainer}>
