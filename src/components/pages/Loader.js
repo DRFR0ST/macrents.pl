@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LinearProgress, Portal, makeStyles } from '@material-ui/core';
-import logo from 'images/logo.png';
+import logo from 'images/logo.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {

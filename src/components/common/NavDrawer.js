@@ -16,7 +16,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import LanguageIcon from '@material-ui/icons/Language';
 import englishFlag from 'images/flags/US.png';
 import germanFlag from 'images/flags/DE.png';
-import logo from 'images/logo.png';
+import logo from 'images/logo.svg';
 import polishFlag from 'images/flags/PL.png';
 import translations from 'translations/nav.trans.js';
 import { useLittera } from 'react-littera';
