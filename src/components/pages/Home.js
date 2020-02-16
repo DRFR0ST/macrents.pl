@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Special from '../common/Special';
 import { Icon, Typography, withStyles } from '@material-ui/core';
-import FleetSelector from '../common/FleetSelector';
 import vehImage from '../../images/newfleet/audi_q7.png';
 
 const styles = {
@@ -13,7 +12,6 @@ const styles = {
 };
 
 const Home = ({ children, classes }) => {
-  // TODO: FLOTY!!
   return (
     <div className={classes.root}>
       <Header />
@@ -53,6 +51,7 @@ const Home = ({ children, classes }) => {
               BRAK PROMOCJI
             </Typography>
             <img
+              alt="promotion_veh"
               src={vehImage}
               style={{
                 filter: 'brightness(0%) opacity(0.7)',
