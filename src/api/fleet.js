@@ -64,7 +64,7 @@ export default [
       ],
       pl_PL: ['Zestaw głośnomówiący, dach panoramiczny, pakiet AMG'],
     },
-    flip: true,
+    flip: false,
     image: ExampleVehicle2,
     lowestPrice: 109,
     color: 'white',
