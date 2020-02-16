@@ -7,9 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {
-  Divider,
   FormControlLabel,
-  Input,
   Radio,
   RadioGroup,
   TextField,
@@ -80,6 +78,9 @@ export default function Payment({ open = false, handleClose, product = {} }) {
 
   const handleNext = () => {
     setStage((v) => v + 1);
+  };
+  const handlePrev = () => {
+    setStage((v) => v - 1);
   };
 
   let content = React.Fragment;
@@ -213,72 +214,7 @@ export default function Payment({ open = false, handleClose, product = {} }) {
               label="E-Mail"
             />
           </RadioGroup>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Anuluj
-          </Button>
-          <Button
-            disabled={!name || !surName || !email || !tel}
-            onClick={handleNext}
-            color="primary"
-            autoFocus
-          >
-            Kontynuuj
-          </Button>
-        </DialogActions>
-      </React.Fragment>
-    );
-
-  if (stage === 2)
-    content = (
-      <React.Fragment>
-        <DialogTitle id="alert-dialog-title">{'Wypożycz auto'}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Upenij się, że wszystko się zgadza
-          </DialogContentText>
-          <img src={product.image} />
-          <Typography>Pojazd: {product.name}</Typography>
-          <Typography>Minimalna cena: {product.lowestPrice}</Typography>
-          <br />
-          <br />
-          <Typography>Imię: {surName}</Typography>
-          <Typography>Nazwisko: {name}</Typography>
-          <Typography>E-Mail: {email}</Typography>
-          <Typography>Telefon: {tel}</Typography>
-          <Typography>Preferowana komunikacja: {prefCom}</Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Anuluj
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Prześlij
-          </Button>
-        </DialogActions>
-      </React.Fragment>
-    );
-
-  return (
-    <div>
-      <Dialog
-        maxWidth="md"
-        fullWidth
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        {content}
-      </Dialog>
-    </div>
-  );
-}
-
-/*
-
-<div
+          <div
             style={{
               alignItems: 'center',
               display: 'flex',
@@ -309,4 +245,70 @@ export default function Payment({ open = false, handleClose, product = {} }) {
               }}
             />
           </div>
-  */
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handlePrev} color="primary">
+            Wróć
+          </Button>
+          <Button
+            disabled={
+              !name || !surName || !email || !tel || !dateTo || !dateFrom
+            }
+            onClick={handleNext}
+            color="primary"
+            autoFocus
+          >
+            Kontynuuj
+          </Button>
+        </DialogActions>
+      </React.Fragment>
+    );
+
+  if (stage === 2)
+    content = (
+      <React.Fragment>
+        <DialogTitle id="alert-dialog-title">{'Wypożycz auto'}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Upenij się, że wszystko się zgadza
+          </DialogContentText>
+          <img src={product.image} />
+          <Typography>Pojazd: {product.name}</Typography>
+          <Typography>Minimalna cena: {product.lowestPrice}</Typography>
+          <br />
+          <br />
+          <Typography>Imię: {surName}</Typography>
+          <Typography>Nazwisko: {name}</Typography>
+          <Typography>E-Mail: {email}</Typography>
+          <Typography>Telefon: {tel}</Typography>
+          <Typography>
+            Okres: {dateFrom.toDateString()} - {dateTo.toDateString()}
+          </Typography>
+          <Typography>Preferowana komunikacja: {prefCom}</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handlePrev} color="primary">
+            Wróć
+          </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Prześlij
+          </Button>
+        </DialogActions>
+      </React.Fragment>
+    );
+
+  return (
+    <div>
+      <Dialog
+        maxWidth="md"
+        fullWidth
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        {content}
+      </Dialog>
+    </div>
+  );
+}

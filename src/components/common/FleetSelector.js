@@ -244,7 +244,13 @@ const FleetSelector = ({ classes, maxItems = 0 }) => {
           <Button onClick={closeSpecs}>Zamknij</Button>
         </DialogActions>
       </Dialog>
-      <Payment open={rentOpen} handleClose={closeRent} product={_flt[active]} />
+      {rentOpen && (
+        <Payment
+          open={rentOpen}
+          handleClose={closeRent}
+          product={_flt[active]}
+        />
+      )}
     </React.Fragment>
   );
 };
