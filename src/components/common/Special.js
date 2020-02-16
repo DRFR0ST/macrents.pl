@@ -52,7 +52,8 @@ const styles = (theme) => ({
     overflow: 'hidden',
     position: 'relative',
     width: '100vw',
-    border: '1px solid #121212',
+    borderTop: '1px solid #121212',
+    borderBottom: '1px solid #121212',
   },
   rootRight: {
     alignItems: 'center',
@@ -63,7 +64,8 @@ const styles = (theme) => ({
     overflow: 'hidden',
     position: 'relative',
     width: '100vw',
-    border: '1px solid #121212',
+    borderTop: '1px solid #121212',
+    borderBottom: '1px solid #121212',
   },
   shadowLeft: {
     background: 'linear-gradient(to bottom left, #121212d9 35%, transparent)',
