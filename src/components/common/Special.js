@@ -117,8 +117,7 @@ const Special = ({ classes }) => {
 
   const specials = [
     {
-      description:
-        'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
+      description: translated.content1,
       image: special1Image,
       title: translated.slogan1,
       altImageStyle: {
@@ -126,8 +125,7 @@ const Special = ({ classes }) => {
       },
     },
     {
-      description:
-        'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
+      description: translated.content2,
       image: special2Image,
       title: translated.slogan2,
       altImageStyle: {
@@ -135,8 +133,7 @@ const Special = ({ classes }) => {
       },
     },
     {
-      description:
-        'Consectetur laborum et commodo occaecat est eu commodo et mollit amet nulla qui magna. Aute irure aute deserunt do in magna quis amet cupidatat culpa deserunt est. Ullamco occaecat dolor aliqua ea eiusmod est exercitation. Excepteur pariatur commodo ullamco voluptate dolor. Commodo nisi officia pariatur adipisicing aute qui aute. Consequat sunt consequat magna eu proident ut labore consectetur veniam officia ex tempor ex quis. Ullamco dolore dolore nulla est qui sint esse do et magna ea ea dolor laborum. Exercitation quis non ea duis. Cillum qui ipsum elit do tempor sit irure sint reprehenderit culpa deserunt mollit. Eiusmod nisi nulla esse sunt dolor quis nostrud non deserunt. Proident ad incididunt exercitation excepteur magna dolore id dolor elit Lorem minim. Occaecat aliqua aliquip veniam ipsum veniam laboris cillum nostrud minim exercitation ad ullamco. Deserunt commodo aute exercitation esse sint. In veniam cupidatat nostrud mollit nulla magna anim enim consequat culpa. Qui qui labore aliqua cupidatat velit fugiat cillum magna ipsum. Irure adipisicing elit qui consectetur occaecat culpa.',
+      description: translated.content3,
       image:
         'https://img2.goodfon.com/wallpaper/nbig/2/ad/mercedes-znachok-buket.jpg',
       title: translated.slogan3,

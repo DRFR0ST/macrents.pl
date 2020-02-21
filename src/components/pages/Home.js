@@ -45,6 +45,7 @@ const Home = ({ children, classes }) => {
               flexDirection: 'column',
               justifyContent: 'center',
               height: '100%',
+              position: 'relative',
             }}
           >
             <Typography variant="h3" color="primary">
@@ -59,6 +60,33 @@ const Home = ({ children, classes }) => {
                 maxWidth: '100%',
               }}
             />
+            <Icon
+              style={{
+                fontSize: '40vw',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                opacity: 0.1,
+                color: '#a48453',
+              }}
+            >
+              block
+            </Icon>
+            {/* <div
+              style={{
+                color: '#a48453',
+                fontWeight: 'bold',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                fontSize: '40vw',
+                transform: 'translate(-50%, -50%)',
+                opacity: 0.3,
+              }}
+            >
+              {'\\'}
+            </div> */}
           </div>
           <div
             style={{
@@ -95,9 +123,10 @@ const Home = ({ children, classes }) => {
           >
             Aktualne promocje
           </Typography>
-          <Icon style={{ fontSize: '35vw' }} color="primary">
+          {/* <Icon style={{ fontSize: '35vw' }} color="primary">
             money_off
-          </Icon>
+          </Icon> */}
+          <p style={{ fontSize: '25rem', color: '#a48453', margin: 0 }}>%</p>
         </div>
       </div>
       <div className={classes.content}>
