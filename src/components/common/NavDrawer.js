@@ -64,6 +64,10 @@ const tabs = [
     key: 'pricing',
   },
   {
+    icon: 'description',
+    key: 'documents',
+  },
+  {
     icon: 'phone',
     key: 'contact',
   },
