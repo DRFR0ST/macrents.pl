@@ -1,6 +1,7 @@
 import { Button, Icon, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 
+import { useEmailSubmit } from '../../api/hooks';
 import { makeStyles } from '@material-ui/styles';
 import translations from 'translations/contact.trans.js';
 import { useLittera } from 'react-littera';
@@ -109,13 +110,20 @@ const useStyles = makeStyles((theme) => ({
 
 function Contact() {
   const classes = useStyles();
-  const [values, setValues] = useState(['', '', '', '']);
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
   const [translated] = useLittera(translations);
+  const [formStatus, formApi] = useEmailSubmit();
 
-  const handleChange = (id, value) => {
-    let vals = [...values];
-    vals[id] = value;
-    setValues(vals);
+  const handleChange = (property, value) => {
+    setValues({ ...values, [property]: value });
+  };
+  const handleSubmit = () => {
+    formApi.submit(values);
   };
 
   return (
@@ -166,44 +174,48 @@ function Contact() {
         </div>
         <div className={classes.right}>
           <TextField
+            error={Boolean(formStatus.fields.name)}
             fullWidth
             color="primary"
             placeholder={translated.name}
             value={values[0]}
-            onChange={(e) => handleChange(0, e.target.value)}
+            onChange={(e) => handleChange('name', e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
           />
           <TextField
+            error={Boolean(formStatus.fields.email)}
             fullWidth
             color="primary"
             placeholder={translated.email}
             type="email"
             value={values[1]}
-            onChange={(e) => handleChange(1, e.target.value)}
+            onChange={(e) => handleChange('email', e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
           />
           <TextField
+            error={Boolean(formStatus.fields.phone)}
             fullWidth
             color="primary"
             placeholder={translated.phone}
             type="phone"
             value={values[2]}
-            onChange={(e) => handleChange(2, e.target.value)}
+            onChange={(e) => handleChange('phone', e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
           />
           <TextField
+            error={Boolean(formStatus.fields.message)}
             fullWidth
             color="primary"
             placeholder={translated.message}
             multiline
             value={values[3]}
-            onChange={(e) => handleChange(3, e.target.value)}
+            onChange={(e) => handleChange('message', e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.textField}
@@ -213,6 +225,7 @@ function Contact() {
             color="primary"
             size="large"
             style={{ float: 'right', marginTop: '1rem' }}
+            onClick={handleSubmit}
           >
             <Icon style={{ marginRight: 8, fontSize: 16 }}>send</Icon>{' '}
             {translated.submit}
