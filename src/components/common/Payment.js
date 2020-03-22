@@ -13,9 +13,12 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import { KeyboardDatePicker } from '@material-ui/pickers';
 import cx from 'classnames';
 import { makeStyles } from '@material-ui/styles';
+import { useEmailSubmit } from '../../api/hooks';
+import moment from 'moment';
 
 const useStyle = makeStyles((theme) => ({
   card: {
@@ -54,6 +57,8 @@ const useStyle = makeStyles((theme) => ({
 export default function Payment({ open = false, handleClose, product = {} }) {
   const classes = useStyle();
 
+  const [formStatus, formApi] = useEmailSubmit({ template_id: 'product_form' });
+
   const [name, setName] = useState('');
   const [surName, setSurName] = useState('');
   const [email, setEmail] = useState('');
@@ -81,6 +86,32 @@ export default function Payment({ open = false, handleClose, product = {} }) {
   };
   const handlePrev = () => {
     setStage((v) => v - 1);
+  };
+
+  const handleSubmit = () => {
+    let dFr = '';
+    let dTo = '';
+
+    try {
+      dFr = dateFrom ? moment(dateFrom).format('LL') : '';
+      dTo = dateTo ? moment(dateTo).format('LL') : '';
+    } catch (err) {
+      console.error(err);
+    }
+
+    const vals = {
+      dateFrom: dFr,
+      dateTo: dTo,
+      email,
+      name,
+      phone: tel,
+      prefCom,
+      product: product.name,
+      surName,
+    };
+
+    formApi.submit(vals);
+    handleNext();
   };
 
   let content = React.Fragment;
@@ -223,7 +254,8 @@ export default function Payment({ open = false, handleClose, product = {} }) {
           >
             <KeyboardDatePicker
               margin="normal"
-              id="date-picker-dialog"
+              id="date-picker-dialog-from"
+              minDate={new Date()}
               label="Data od"
               format="DD.MM.YYYY"
               value={dateFrom}
@@ -235,7 +267,8 @@ export default function Payment({ open = false, handleClose, product = {} }) {
             <p style={{ margin: '0 10px' }}> / </p>
             <KeyboardDatePicker
               margin="normal"
-              id="date-picker-dialog"
+              id="date-picker-dialog-to"
+              minDate={new Date()}
               label="Data do"
               format="DD.MM.YYYY"
               value={dateTo}
@@ -264,7 +297,17 @@ export default function Payment({ open = false, handleClose, product = {} }) {
       </React.Fragment>
     );
 
-  if (stage === 2)
+  if (stage === 2) {
+    let dFr = '';
+    let dTo = '';
+
+    try {
+      dFr = dateFrom ? moment(dateFrom).format('LL') : '';
+      dTo = dateTo ? moment(dateTo).format('LL') : '';
+    } catch (err) {
+      console.error(err);
+    }
+
     content = (
       <React.Fragment>
         <DialogTitle id="alert-dialog-title">{'Wypożycz auto'}</DialogTitle>
@@ -282,7 +325,7 @@ export default function Payment({ open = false, handleClose, product = {} }) {
           <Typography>E-Mail: {email}</Typography>
           <Typography>Telefon: {tel}</Typography>
           <Typography>
-            Okres: {dateFrom.toDateString()} - {dateTo.toDateString()}
+            Okres: {dFr} - {dTo}
           </Typography>
           <Typography>Preferowana komunikacja: {prefCom}</Typography>
         </DialogContent>
@@ -290,12 +333,60 @@ export default function Payment({ open = false, handleClose, product = {} }) {
           <Button onClick={handlePrev} color="primary">
             Wróć
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleSubmit} color="primary" autoFocus>
             Prześlij
           </Button>
         </DialogActions>
       </React.Fragment>
     );
+  }
+
+  if (stage === 3) {
+    let ct = <React.Fragment />;
+    console.log(formStatus);
+    if (formStatus.status === 'pending') {
+      ct = (
+        <React.Fragment>
+          <Alert severity="info">{formStatus.message}</Alert>
+        </React.Fragment>
+      );
+    } else if (formStatus.status === 'success') {
+      ct = (
+        <React.Fragment>
+          <Alert severity="success">{formStatus.message}</Alert>
+        </React.Fragment>
+      );
+    } else if (formStatus.status === 'failed') {
+      ct = (
+        <React.Fragment>
+          <Alert severity="error">{formStatus.message}</Alert>
+        </React.Fragment>
+      );
+    }
+
+    content = (
+      <React.Fragment>
+        <DialogContent>{ct}</DialogContent>
+        <DialogActions>
+          {formStatus.status === 'failed' && (
+            <Button onClick={handlePrev} color="primary">
+              Wróć
+            </Button>
+          )}
+          <Button
+            disabled={
+              formStatus.status !== 'success' && formStatus.status !== 'failed'
+            }
+            onClick={handleClose}
+            color="primary"
+            autoFocus
+          >
+            Zamknij
+          </Button>
+        </DialogActions>
+      </React.Fragment>
+    );
+  }
 
   return (
     <div>

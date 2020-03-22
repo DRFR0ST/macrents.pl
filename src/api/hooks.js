@@ -53,9 +53,11 @@ const HookProto = {
   validateInput,
 
   submit(data) {
-    let canSubmit = false;
+    const env = this;
+    env._setResponse('pending', 'Wiadomość jest przygotowywana do wysłania.');
+    let canSubmit = true;
 
-    const data_map = Object.keys(data).map((k, i) => {
+    const data_map = Object.keys(data).forEach((k, i) => {
       const v = data[k];
 
       const isPrimitive = typeof v !== 'object';
@@ -79,12 +81,21 @@ const HookProto = {
         message = _msg;
       }
 
-      if (!valid) this._setField(k, message);
+      if (!valid) {
+        this._setField(k, message);
+        canSubmit = false;
+      }
 
-      return item.value;
+      //return item.value;
     });
 
-    if (!canSubmit) return;
+    if (!canSubmit) {
+      this._setResponse(
+        'failed',
+        'Nie wszystkie pola zostały poprawnie wypełnione.',
+      );
+      return;
+    }
     // name = {value: 'fefe', ...defaultConfig}
     // name = { value: "Mike", required: true, }
     // name: { value: string, required: boolean, validator?: (value: string) => ({ valid: boolean, message: string }) }
@@ -99,11 +110,9 @@ const HookProto = {
       service_id: 'gmail',
       template_id: this._config.template_id,
       user_id: 'user_1e5MPaDWRUDwFiPiOHMyx',
-      template_params: { ...data_map },
+      template_params: data,
     };
-
-    const env = this;
-
+    console.log(config);
     axios
       .post('https://api.emailjs.com/api/v1.0/email/send', config)
       .then((response) => {
@@ -130,7 +139,11 @@ export const useEmailSubmit = (config = defaultConfig) => {
 
   const _setResponse = useCallback(
     (status, message) => {
-      setResponse({ status, message, fields });
+      setResponse({
+        status: status || '',
+        message: message || '',
+        fields: fields || {},
+      });
     },
     [fields],
   );
@@ -150,14 +163,18 @@ export const useEmailSubmit = (config = defaultConfig) => {
       response,
       {
         __proto__: HookProto,
-        _setResponse: setResponse,
+        _setResponse,
         _setField,
         _clearField,
         _config: config,
       },
     ];
   }
-  ref.current[0] = { ...response, fields };
+  ref.current[0] = {
+    status: response.status,
+    message: response.message,
+    fields,
+  };
 
-  return ref.current;
+  return [...ref.current];
 };
