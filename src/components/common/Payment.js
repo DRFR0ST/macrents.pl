@@ -315,9 +315,9 @@ export default function Payment({ open = false, handleClose, product = {} }) {
           <DialogContentText id="alert-dialog-description">
             Upenij się, że wszystko się zgadza
           </DialogContentText>
-          <img src={product.image} alt="vehicle" />
+          <img src={product.sideImageUrl} alt="vehicle" />
           <Typography>Pojazd: {product.name}</Typography>
-          <Typography>Minimalna cena: {product.lowestPrice}</Typography>
+          <Typography>Minimalna cena: {product.priceList[0]}</Typography>
           <br />
           <br />
           <Typography>Imię: {surName}</Typography>

@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import translations from 'translations/pricing.trans.js';
 import { useHistory } from 'react-router-dom';
 import { useLittera } from 'react-littera';
+import { useFleet } from '../../api/vehicles';
 
 const styles = (theme) => ({
   caption: {
@@ -114,6 +115,7 @@ const rows = [
 
 const Pricing = ({ classes }) => {
   const [translated] = useLittera(translations);
+  const fleet = useFleet().sort(priceSort).map(veh => createData(veh.id, veh.name, ...veh.priceList));
 
   const history = useHistory();
 
@@ -171,7 +173,7 @@ const Pricing = ({ classes }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {fleet.map((row) => (
                 <TableRow
                   onClick={!row.cat ? handleVehicleClick(row.id) : () => {}}
                   style={{ cursor: !row.cat ? 'pointer' : 'default' }}
@@ -209,5 +211,11 @@ const Pricing = ({ classes }) => {
     </React.Fragment>
   );
 };
+
+const priceSort = (a, b) => {
+  if (a.priceList[0] > b.priceList[0]) return 1;
+  if (a.priceList[0] < b.priceList[0]) return -1;
+  return 0;
+}
 
 export default withStyles(styles)(Pricing);

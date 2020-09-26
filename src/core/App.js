@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+import { FleetProvider } from "../api/vehicles";
 import LitteraProvider from 'react-littera';
+import LoadingPage from '../components/pages/Loader.js';
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -8,8 +10,8 @@ import NavDrawer from '../components/common/NavDrawer';
 import Navbar from 'components/common/Navbar';
 import { HashRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
-import LoadingPage from '../components/pages/Loader.js';
 import { createMuiTheme } from '@material-ui/core';
+
 
 const theme = createMuiTheme({
   button: {
@@ -48,21 +50,23 @@ function App() {
   const [language, setLanguage] = useState('pl_PL');
 
   return (
-    <MuiPickersUtilsProvider utils={MomentUtils}>
-      <MuiThemeProvider theme={theme}>
-        <LitteraProvider language={language} setLanguage={setLanguage}>
-          <LoadingPage />
-          <Router>
-            <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
-            <Routes />
-            <NavDrawer
-              toggled={drawerOpen}
-              closeDrawer={() => setDrawerOpen(false)}
-            />
-          </Router>
-        </LitteraProvider>
-      </MuiThemeProvider>
-    </MuiPickersUtilsProvider>
+    <FleetProvider>
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <MuiThemeProvider theme={theme}>
+          <LitteraProvider language={language} setLanguage={setLanguage}>
+            <LoadingPage />
+            <Router>
+              <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+              <Routes />
+              <NavDrawer
+                toggled={drawerOpen}
+                closeDrawer={() => setDrawerOpen(false)}
+              />
+            </Router>
+          </LitteraProvider>
+        </MuiThemeProvider>
+      </MuiPickersUtilsProvider>
+    </FleetProvider>
   );
 }
 

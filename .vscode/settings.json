@@ -38,13 +38,8 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.configPath": ".prettierrc.js",
   "editor.tabSize": 2,
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5",
   "editor.formatOnSave": true,
-  "prettier.ignorePath": ".prettierignore",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }

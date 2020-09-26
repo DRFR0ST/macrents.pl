@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import cx from 'classnames';
 import header_car from 'images/header_car4.png';
+import header_background from 'images/header_background.jpg';
 import translations from 'translations/header.trans.js';
 import { useLittera } from 'react-littera';
 
@@ -32,6 +33,16 @@ const styles = (theme) => ({
     zIndex: 3,
     maxHeight: '560px',
     margin: '100px 0 auto 10%',
+    position: "relative",
+  },
+  headerImageBackground: {
+    position: "absolute",
+    width: "40vw",
+    height: "100%",
+    right: 0,
+    top: 0,
+    zIndex: -2,
+    borderRadius: "300px 0 0 180px",
   },
   left: {
     '& div': {
@@ -133,6 +144,11 @@ const Header = ({ classes }) => {
           alt="Header Car"
         />
         <div className={classes.plusChunk2} />
+        {/* <img
+          className={classes.headerImageBackground}
+          src={header_background}
+          alt="Header Background View"
+        /> */}
       </div>
     </div>
   );

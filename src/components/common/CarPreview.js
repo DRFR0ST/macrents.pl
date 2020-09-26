@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 import translations from 'translations/fleet.trans.js';
 import { useLittera } from 'react-littera';
 import { useParams } from 'react-router-dom';
+import { useVehicle } from '../../api/vehicles';
 
 const useStyles = makeStyles((theme) => ({
   available: {
@@ -107,65 +108,73 @@ const useStyles = makeStyles((theme) => ({
 
 function CarPreview() {
   const { id } = useParams();
-  const vehicle = useRef(fleet[id]);
+  //const vehicle = useRef(fleet[id]);
+  const vehicle = useVehicle(id);
   const classes = useStyles();
   const [translated, language] = useLittera(translations);
 
-  if (!vehicle.current) return <Loader />;
+  if (!vehicle) return <Loader />;
 
   return (
     <div className={classes.root}>
       <div className={classes.imageContainer}>
         <div className={classes.headerShadow} />
-        {/* <img src={vehicle.current.thumbnail} alt={vehicle.current.name} /> */}
+        {/* <img src={vehicle.thumbnail} alt={vehicle.name} /> */}
         <div
           className={classes.thumbnailEl}
           style={{
-            'background-image': `url(${vehicle.current.thumbnail})`,
-            ...vehicle.current.thumbnailStyle,
+            'backgroundImage': `url(${vehicle.thumbnailUrl || "https://source.unsplash.com/hdHy6055jAA"})`,
+            ...vehicle.thumbnailStyle,
           }}
         ></div>
       </div>
       <div className={classes.contentContainer}>
         <div className={classes.contentWrapper}>
           <div>
-            <h1 className={classes.title}>{vehicle.current.name}</h1>
+            <h1 className={classes.title}>{vehicle.name}</h1>
             <p style={{ marginTop: 0, opacity: 0.75 }}>
-              {vehicle.current.type}
+              {vehicle.type}
             </p>
           </div>
         </div>
-        <h3 className={classes.brandedColor}>Wyposażenie</h3>
-        {typeof vehicle.current.description[language] === 'string' ? (
-          <p className={classes.description}>
-            {vehicle.current.description[language]}
-          </p>
-        ) : (
-          vehicle.current.description[language] &&
-          vehicle.current.description[language].map((e) => (
-            <p className={classes.description}>{e}</p>
-          ))
-        )}
+        {
+          vehicle.description !== undefined ? <>
+            <h3 className={classes.brandedColor}>Wyposażenie</h3>
+            {typeof vehicle.description[language] === 'string' ? (
+              <p className={classes.description}>
+                {vehicle.description[language]}
+              </p>
+            ) : (
+                vehicle.description[language] &&
+                vehicle.description[language].map((e) => (
+                  <p key={e} className={classes.description}>{e}</p>
+              ))
+            )}
+          </>
+            : null
+        }
         <br />
         <br />
-        <div className={classes.specsContainer}>
-          {Object.keys(vehicle.current.specs).map((e) => {
-            const k = translated[e];
-            const v =
-              typeof vehicle.current.specs[e] === 'boolean'
-                ? translated[vehicle.current.specs[e]]
-                  ? translated['yes']
-                  : translated['no']
-                : vehicle.current.specs[e];
+        {vehicle.specs !== undefined ? 
+          <div className={classes.specsContainer}>
+            {vehicle.specs.map((e, i) => {
+              const k = translated[e[0]];
+              const v =
+                typeof vehicle.specs[i][1] === 'boolean'
+                  ? translated[vehicle.specs[i][1]]
+                    ? translated['yes']
+                    : translated['no']
+                  : vehicle.specs[i][1];
 
-            return (
-              <div className={classes.specsItem}>
-                <p>{k}</p>
-                <p>{v}</p>
-              </div>
-            );
-          })}
-        </div>
+              return (
+                <div key={k + v} className={classes.specsItem}>
+                  <p>{k}</p>
+                  <p>{v}</p>
+                </div>
+              );
+            })}
+          </div> 
+          : null}
       </div>
     </div>
   );
