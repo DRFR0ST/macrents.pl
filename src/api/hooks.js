@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from 'react';
 // const templateType = (type) => {};
 
 const validateEmail = (email) => {
-  const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return {
     valid: Boolean(regex.test(String(email).toLowerCase())),
@@ -13,7 +13,7 @@ const validateEmail = (email) => {
 };
 
 const validatePhone = (phone) => {
-  const regex = /^[0-9\+\s-]{8,13}$/;
+  const regex = /^[0-9+\s-]{8,13}$/;
   return {
     valid: Boolean(validateInput(phone) && regex.test(phone)),
     message: 'Phone is invalid',
@@ -24,7 +24,7 @@ const validateInput = (text) => {
   return { valid: Boolean(text.length === 0), message: 'Input is invalid' };
 };
 
-const validateFunc = (type = 'input', v) => {
+/*const validateFunc = (type = 'input', v) => {
   let message = '';
 
   switch (type) {
@@ -41,7 +41,7 @@ const validateFunc = (type = 'input', v) => {
   }
 
   return message;
-};
+};*/
 
 const defaultDataKeyConfig = {
   required: false,
@@ -57,7 +57,7 @@ const HookProto = {
     env._setResponse('pending', 'Wiadomość jest przygotowywana do wysłania.');
     let canSubmit = true;
 
-    const data_map = Object.keys(data).forEach((k, i) => {
+    Object.keys(data).forEach((k, i) => {
       const v = data[k];
 
       const isPrimitive = typeof v !== 'object';
