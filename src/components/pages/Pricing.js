@@ -92,9 +92,9 @@ function createData(id, name, hourly, daily, monthly, yearly) {
   };
 }
 
-function createCategory(name) {
-  return { cat: true, name };
-}
+// function createCategory(name) {
+//   return { cat: true, name };
+// }
 
 // const rows = [
 //   createCategory('Klasa B'),
