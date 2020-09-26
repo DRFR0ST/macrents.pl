@@ -163,7 +163,7 @@ const FleetSelector = ({ classes, maxItems = 0 }) => {
     }
 
     return f;
-  }, [maxItems, fleetData.length]);
+  }, [maxItems, fleetData]);
 
   const handleNext = () =>
     setActive(_flt.length - 1 === active ? 0 : active + 1);

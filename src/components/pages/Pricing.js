@@ -96,22 +96,22 @@ function createCategory(name) {
   return { cat: true, name };
 }
 
-const rows = [
-  createCategory('Klasa B'),
-  createData(0, 'Skoda Rapid (sedan)', 119, 109, 99, 89),
-  createCategory('Klasa C'),
-  createData(1, 'Mercedes A Klasa (hatchback)', 139, 129, 119, 109),
-  createCategory('Klasa D'),
-  createData(2, 'Skoda Octavia (sedan)', 159, 149, 129, 119),
-  createCategory('Klasa D+'),
-  createData(3, 'BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
-  createCategory('Klasa E'),
-  createData(4, 'BMW Seria 5 (sedan)', 319, 309, 299, 279),
-  createData(5, 'Mercedes E Klasa (sedan)', 299, 289, 279, 269),
-  createData(6, 'Mercedes E Klasa (sedan)', 309, 299, 289, 279),
-  createCategory('Klasa S'),
-  createData(7, 'Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
-];
+// const rows = [
+//   createCategory('Klasa B'),
+//   createData(0, 'Skoda Rapid (sedan)', 119, 109, 99, 89),
+//   createCategory('Klasa C'),
+//   createData(1, 'Mercedes A Klasa (hatchback)', 139, 129, 119, 109),
+//   createCategory('Klasa D'),
+//   createData(2, 'Skoda Octavia (sedan)', 159, 149, 129, 119),
+//   createCategory('Klasa D+'),
+//   createData(3, 'BMW 4 GranCoupe (sedan)', 279, 269, 259, 249),
+//   createCategory('Klasa E'),
+//   createData(4, 'BMW Seria 5 (sedan)', 319, 309, 299, 279),
+//   createData(5, 'Mercedes E Klasa (sedan)', 299, 289, 279, 269),
+//   createData(6, 'Mercedes E Klasa (sedan)', 309, 299, 289, 279),
+//   createCategory('Klasa S'),
+//   createData(7, 'Audi Q7 S-LINE (SUV)', 499, 469, 449, 429),
+// ];
 
 const Pricing = ({ classes }) => {
   const [translated] = useLittera(translations);

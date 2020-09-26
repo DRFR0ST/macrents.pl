@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import Loader from './Loader';
-import fleet from '../../api/fleet';
 import { makeStyles } from '@material-ui/styles';
 import translations from 'translations/fleet.trans.js';
 import { useLittera } from 'react-littera';

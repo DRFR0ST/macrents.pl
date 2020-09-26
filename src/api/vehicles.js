@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 export const fetchData = async () => {
-  return fetch("https://gist.githubusercontent.com/DRFR0ST/0b918694167f6135b8b56db19491db69/raw/05dbd6e935215be3ee7f8eda586827d39a274817/fleet.json")
+  return fetch("https://gist.github.com/DRFR0ST/0b918694167f6135b8b56db19491db69/raw/")
     .then(response => response.json())
 }
 
@@ -24,8 +24,11 @@ export class FleetProvider extends React.Component {
   }
 }
 
-export const useFleet = () => {
+export const useFleet = (includeInvisible = false) => {
   const data = useContext(FleetContext);
+
+  if (!includeInvisible)
+    return [...data].filter(veh => veh.visible && veh.visible === true);
 
   return [...data];
 }

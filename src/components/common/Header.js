@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import cx from 'classnames';
 import header_car from 'images/header_car4.png';
-import header_background from 'images/header_background.jpg';
+//import header_background from 'images/header_background.jpg';
 import translations from 'translations/header.trans.js';
 import { useLittera } from 'react-littera';
 
