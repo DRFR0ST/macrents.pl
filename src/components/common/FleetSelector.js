@@ -17,6 +17,7 @@ import translations from 'translations/fleet.trans.js';
 import { useHistory } from 'react-router-dom';
 import { useLittera } from 'react-littera';
 import { useFleet } from '../../api/vehicles.js';
+import queryString from "query-string";
 
 const styles = {
   '@keyframes vanish': {
@@ -144,13 +145,15 @@ const styles = {
 };
 
 const FleetSelector = ({ classes, maxItems = 0 }) => {
-  const fleetData = useFleet().sort(priceSort);
 
   const history = useHistory();
+  const query = queryString.parse(history.location.search);
+  const fleetData = useFleet(!!query.dev).sort(priceSort);
   const [active, setActive] = useState(0);
   const [specsOpen, setSpecsOpen] = useState(false);
   const [translated] = useLittera(translations);
   const [rentOpen, setRentOpen] = useState(false);
+
 
   const closeRent = () => setRentOpen(false);
   const openRent = () => setRentOpen(true);
@@ -165,10 +168,20 @@ const FleetSelector = ({ classes, maxItems = 0 }) => {
     return f;
   }, [maxItems, fleetData]);
 
-  const handleNext = () =>
-    setActive(_flt.length - 1 === active ? 0 : active + 1);
-  const handlePrev = () =>
-    setActive(0 === active ? _flt.length - 1 : active - 1);
+  const handleNext = () => {
+    setActive(currentState => {
+      const nextState = _flt.length - 1 === currentState ? 0 : currentState + 1;
+
+      return nextState
+    });
+  }
+  const handlePrev = () => {
+    setActive(currentState => {
+      const nextState = 0 === currentState ? _flt.length - 1 : currentState - 1;
+
+      return nextState
+    });
+  }
 
   const closeSpecs = () => setSpecsOpen(false);
 

@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import translations from 'translations/pricing.trans.js';
 import { useHistory } from 'react-router-dom';
 import { useLittera } from 'react-littera';
+import queryString from "query-string";
 import { useFleet } from '../../api/vehicles';
 
 const styles = (theme) => ({
@@ -114,10 +115,12 @@ function createData(id, name, hourly, daily, monthly, yearly) {
 // ];
 
 const Pricing = ({ classes }) => {
-  const [translated] = useLittera(translations);
-  const fleet = useFleet().sort(priceSort).map(veh => createData(veh.id, veh.name, ...veh.priceList));
-
   const history = useHistory();
+  const query = queryString.parse(history.location.search);
+  const [translated] = useLittera(translations);
+  const showNotVisible = !!query.dev;
+  const fleet = useFleet(showNotVisible).sort(priceSort).map(veh => createData(veh.id, veh.name, ...veh.priceList));
+
 
   const handleVehicleClick = (id) => () => {
     history.push(`/vehicle/${id}`);
@@ -178,7 +181,7 @@ const Pricing = ({ classes }) => {
                   onClick={!row.cat ? handleVehicleClick(row.id) : () => {}}
                   style={{ cursor: !row.cat ? 'pointer' : 'default' }}
                   hover={!row.cat}
-                  key={row.name}
+                  key={row.id}
                 >
                   {row.cat && (
                     <React.Fragment>
