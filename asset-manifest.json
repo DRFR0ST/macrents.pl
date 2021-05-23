@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.16867338.chunk.css",
-    "main.js": "/static/js/main.8c8be33e.chunk.js",
-    "main.js.map": "/static/js/main.8c8be33e.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.705f5fa9.chunk.js": "/static/js/2.705f5fa9.chunk.js",
-    "static/js/2.705f5fa9.chunk.js.map": "/static/js/2.705f5fa9.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.14a3292f843f310855f3c41a868f6916.js": "/precache-manifest.14a3292f843f310855f3c41a868f6916.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.16867338.chunk.css.map": "/static/css/main.16867338.chunk.css.map",
-    "static/media/audi_q7.png": "/static/media/audi_q7.80511a95.png",
-    "static/media/header_car4.png": "/static/media/header_car4.4786a7d7.png",
-    "static/media/logo.svg": "/static/media/logo.d41fc639.svg",
-    "static/media/special_background01.jpg": "/static/media/special_background01.2e4add49.jpg",
-    "static/media/volkswagen-passat-alltrack-b8-2016-06.png": "/static/media/volkswagen-passat-alltrack-b8-2016-06.368eeb02.png"
+    "main.css": "/macrents.pl/static/css/main.16867338.chunk.css",
+    "main.js": "/macrents.pl/static/js/main.c9e06a0f.chunk.js",
+    "main.js.map": "/macrents.pl/static/js/main.c9e06a0f.chunk.js.map",
+    "runtime~main.js": "/macrents.pl/static/js/runtime~main.c65b2369.js",
+    "runtime~main.js.map": "/macrents.pl/static/js/runtime~main.c65b2369.js.map",
+    "static/js/2.705f5fa9.chunk.js": "/macrents.pl/static/js/2.705f5fa9.chunk.js",
+    "static/js/2.705f5fa9.chunk.js.map": "/macrents.pl/static/js/2.705f5fa9.chunk.js.map",
+    "index.html": "/macrents.pl/index.html",
+    "precache-manifest.602a86d11a81be31ff3d8cebeed2adee.js": "/macrents.pl/precache-manifest.602a86d11a81be31ff3d8cebeed2adee.js",
+    "service-worker.js": "/macrents.pl/service-worker.js",
+    "static/css/main.16867338.chunk.css.map": "/macrents.pl/static/css/main.16867338.chunk.css.map",
+    "static/media/audi_q7.png": "/macrents.pl/static/media/audi_q7.80511a95.png",
+    "static/media/header_car4.png": "/macrents.pl/static/media/header_car4.4786a7d7.png",
+    "static/media/logo.svg": "/macrents.pl/static/media/logo.d41fc639.svg",
+    "static/media/special_background01.jpg": "/macrents.pl/static/media/special_background01.2e4add49.jpg",
+    "static/media/volkswagen-passat-alltrack-b8-2016-06.png": "/macrents.pl/static/media/volkswagen-passat-alltrack-b8-2016-06.368eeb02.png"
   }
 }
